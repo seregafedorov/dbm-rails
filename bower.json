@@ -1,0 +1,23 @@
+{
+    "name": "dbm",
+    "version": "1.4.2",
+    "homepage": "https://github.com/seregafedorov/dbm-rails",
+    "authors": [
+        "bob <mike.bobrov@gmail.com>"
+    ],
+    "license": "MIT",
+    "private": true,
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "vendor/assets/components",
+        "test",
+        "tests"
+    ],
+    "dependencies": {
+        "jquery": "~1.10.0",
+        "jquery-ui": "~1.10.0",
+        "bootstrap": "~3.1.0"
+    }
+}
