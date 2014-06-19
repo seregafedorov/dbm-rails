@@ -1,0 +1,19 @@
+$grid-columns:          6;
+//** Padding between columns. Gets divided in half for the left and right.
+$grid-gutter-width:     12px;
+
+$body-paddings:         $grid-gutter-width * 2.5;
+
+$brand-primary:         #0000ff;
+
+$text-color:            #000;
+
+$font-size-base: 15px;
+$line-height-base: 23px;
+
+$heading-font-size: $font-size-base;
+$heading-line-height: $line-height-base;
+$heading-font-weight: bold;
+
+//** Link hover color set via `darken()` function.
+$link-hover-color:      $text-color;

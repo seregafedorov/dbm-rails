@@ -1,0 +1,172 @@
+body {
+  padding: $body-paddings;
+  padding-bottom: $body-paddings * 1.5;
+  letter-spacing: 1px;
+  font-size: $font-size-base;
+  line-height: $line-height-base;
+
+//  -webkit-font-smoothing: antialiased;
+//  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5 {
+  font-size: $heading-font-size;
+  line-height: $heading-line-height;
+  margin-top: 0;
+  margin-bottom: $line-height-base;
+  font-weight: $heading-font-weight;
+}
+
+h2 {
+  margin-top: ($line-height-base * 6);
+}
+h3 {
+  margin-bottom: 0;
+}
+
+.heading-fig {
+  margin-right: 24px;
+}
+
+.lead {
+  font-weight: bold;
+  margin-bottom: ($line-height-base * 3);
+}
+
+p, ul, li {
+  margin-top: 0;
+  margin-bottom: $line-height-base;
+}
+
+li {
+  margin-bottom: 0;
+}
+
+a {
+  color: $brand-primary;
+  &:hover,
+  &:focus {
+    text-decoration: none;
+  }
+  &.active {
+    color: $brand-primary;
+  }
+}
+
+strong,
+.strong {
+  font-weight: bold;
+}
+
+.list-unstyled {
+  padding-left: 0;
+  list-style: none;
+}
+
+.list-inline {
+  @extend .list-unstyled;
+  > li {
+    display: inline-block;
+    padding-right: 24px;
+  }
+}
+
+.list-team {
+  li {
+    margin-bottom: 23px;
+  }
+}
+
+
+.page-heading {
+  margin-bottom: ($line-height-base * 2);
+}
+
+.nav {
+  color: #000;
+  &:hover,
+  &:focus {
+    color: $brand-primary;
+  }
+}
+
+.nav-brand {
+  @media (min-width: $grid-float-breakpoint) {
+    position: fixed;
+    bottom: $body-paddings * 1.5;
+  }
+}
+
+.projects-list {
+  padding-left: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.projects-list-item {
+  margin-bottom: ($line-height-base * 3);
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.projects-list-item-img {
+  background-color: #f5f5f8;
+}
+
+.projects-list-item-heading,
+.projects-list-item-tag {
+  font-weight: bold;
+}
+
+.img-anons-main {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  margin: 46px 0;
+  overflow: hidden;
+  @media (min-width: $grid-float-breakpoint) {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    margin: 0;
+    padding-left: 6px;
+    width: 50%;
+    height: 50%;
+  }
+}
+
+.img-anons-crop {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: #f5f5f8;
+  margin-bottom: 23px;
+}
+.img-anons-crop-min {
+  height: 400px;
+  max-height: 400px;
+}
+
+.img-anons {
+  position: absolute;
+  left: -100%;
+  top: -100%;
+  right: -100%;
+  bottom: -100%;
+  margin: auto;
+  min-height: 100%;
+  min-width: 100%;
+}
+
+.img-post-wrapper {
+  + .img-post-wrapper {
+    margin-top: -($line-height-base * 2);
+  }
+}
+
+.img-post {
+  margin-top: ($line-height-base * 2);
+  margin-bottom: ($line-height-base / 2);
+}

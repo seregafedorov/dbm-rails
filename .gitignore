@@ -17,3 +17,4 @@
 
 /.idea
 vendor/assets/components
+db/schema.rb
