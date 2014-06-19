@@ -1,17 +1,13 @@
 .container-fluid
   .row 
-    .col-sm-1 
-      a.nav.strong href="/activities/"
-        | Инициативы
-    .col-sm-1
-      a.nav.strong href="/projects/"
-        | Проекты
+    = render :partial => 'layout_partials/nav_activities'
+    = render :partial => 'layout_partials/nav_projects'
         
     .col-sm-3.col-sm-offset-1
       p
         strong
           | Мастерская <sup></sup> — междисциплинарная
-          a href="/team.html"
+          a href="/team/"
             |  проектная группа
           |. Мы способны формулировать и решать социально значимые проектные задачи через исследование и переосмысление контекста
         
@@ -24,7 +20,3 @@
           
   .img-anons-main
     img.img-anons src="#{image_path('activities/polytype-main.jpg')}"
-
-a.nav-brand href="/"
-  img src="#{image_path('m-logo.svg')}" onerror="this.onerror=null; this.src='#{image_path('m-logo.svg')}'"
-  
