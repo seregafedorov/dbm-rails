@@ -1,2 +1,30 @@
-h1
-  | Сережа, поменяй меня
+.container-fluid
+  .row 
+    .col-sm-1 
+      a.nav.strong href="/activities/"
+        | Инициативы
+    .col-sm-1
+      a.nav.strong href="/projects/"
+        | Проекты
+        
+    .col-sm-3.col-sm-offset-1
+      p
+        strong
+          | Мастерская <sup></sup> — междисциплинарная
+          a href="/team.html"
+            |  проектная группа
+          |. Мы способны формулировать и решать социально значимые проектные задачи через исследование и переосмысление контекста
+        
+      p
+        strong
+          a href="mailto: ask@masterskaya.pro"
+            | ask@masterskaya.pro
+          br/
+          | +7 915 077 6823
+          
+  .img-anons-main
+    img.img-anons src="#{image_path('activities/polytype-main.jpg')}"
+
+a.nav-brand href="/"
+  img src="#{image_path('m-logo.svg')}" onerror="this.onerror=null; this.src='#{image_path('m-logo.svg')}'"
+  
