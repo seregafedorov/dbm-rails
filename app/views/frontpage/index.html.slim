@@ -1,22 +1,16 @@
-.container-fluid
-  .row 
-    = render :partial => 'layout_partials/nav_activities'
-    = render :partial => 'layout_partials/nav_projects'
-        
-    .col-sm-3.col-sm-offset-1
-      p
-        strong
-          | Мастерская <sup></sup> — междисциплинарная
-          a href="/team/"
-            |  проектная группа
-          |. Мы способны формулировать и решать социально значимые проектные задачи через исследование и переосмысление контекста
-        
-      p
-        strong
-          a href="mailto: ask@masterskaya.pro"
-            | ask@masterskaya.pro
-          br/
-          | +7 915 077 6823
-          
-  .img-anons-main
-    img.img-anons src="#{image_path('activities/polytype-main.jpg')}"
+p
+  strong
+    | Мастерская <sup></sup> — междисциплинарная
+    a href="/team/"
+      |  проектная группа
+    |. Мы способны формулировать и решать социально значимые проектные задачи через исследование и переосмысление контекста
+  
+p
+  strong
+    a href="mailto: ask@masterskaya.pro"
+      | ask@masterskaya.pro
+    br/
+    | +7 915 077 6823
+      
+.img-anons-main
+  img.img-anons src="#{image_path('activities/polytype-main.jpg')}"

@@ -7,5 +7,14 @@ html
     = stylesheet_link_tag 'index'
     = javascript_include_tag 'application'
   body
-    = yield
+    .container-fluid
+      .row
+        .col-sm-1 
+          = render :partial => 'layout_partials/nav_activities'
+        .col-sm-1 
+          = render :partial => 'layout_partials/nav_projects'
+        
+        .col-sm-3.col-sm-offset-1
+          = yield
+
     = render :partial => 'layout_partials/nav_brand'
