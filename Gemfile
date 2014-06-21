@@ -8,6 +8,13 @@ gem 'slim-rails'
 
 gem 'high_voltage'
 
+gem 'devise'
+gem 'activeadmin', github: 'gregbell/active_admin'
+
+gem 'polyamorous', github: 'activerecord-hackery/polyamorous'
+gem 'ransack', github: 'activerecord-hackery/ransack'
+gem 'formtastic', github: 'justinfrench/formtastic'
+
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use SCSS for stylesheets
