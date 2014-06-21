@@ -6,9 +6,9 @@ p
 p
   ul.list-inline
     li
-      a href="#"
-        | Campus.pdf
-      |  2.6 Mb
+      a href="#{@activity.attachment.url}"
+        | #{@activity.attachment.file.filename}
+      |  #{number_to_human_size(@activity.attachment.file.size)}
     li
       a href="#{@activity.link}"
         | #{@activity.link_text}

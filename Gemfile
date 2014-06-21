@@ -8,6 +8,10 @@ gem 'slim-rails'
 
 gem 'high_voltage'
 
+gem 'carrierwave'
+
+gem 'thin'
+
 gem 'devise'
 gem 'activeadmin', github: 'gregbell/active_admin'
 
