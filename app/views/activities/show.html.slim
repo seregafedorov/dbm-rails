@@ -5,8 +5,8 @@ p
 
 p
   ul.list-inline
-    li
-      - unless @activity.attachment.file.blank?
+    - unless @activity.attachment.file.blank?
+      li
         a href="#{@activity.attachment.url}"
           | #{@activity.attachment.file.filename}
         |  #{number_to_human_size(@activity.attachment.file.size)}
