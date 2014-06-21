@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   resources :projects
 
-  resources :activities
+  resources :activities, :only => [:show, :index]
 
   root to: 'frontpage#index'
 

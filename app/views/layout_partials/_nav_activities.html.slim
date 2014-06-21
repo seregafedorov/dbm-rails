@@ -1,15 +1,6 @@
-a.nav.strong href="/activities/"
+a.nav.strong href="#{activities_path}"
   | Инициативы
 ul.list-unstyled.strong
-  li
-    a.nav href="/activities/campus/" Campus
-  li
-    a.nav href="/activities/campus-pro/" Campus Pro
-  li
-    a.nav href="/activities/archive/" Архив
-  li
-    a.nav href="/activities/typejournal/" Type Journal
-  li
-    a.nav href="/activities/expoo/" Expoo
-  li
-    a.nav href="/activities/hr/" Мастерская кадров
+  - for activity in @menu_activities
+    li
+      a.nav href="#{activity_path(activity)}" #{activity.name}

@@ -1,7 +1,7 @@
 h1.h3
-  | Campus
+  | #{@activity.name}
 p
-  | Образовательная площадка для дизайнеров, расположенная за&nbsp;пределами города. Здесь нет студентов, а&nbsp;есть сотрудники (со-трудники), которые на&nbsp;протяжении нескольких недель живут, работают и&nbsp;проходят обучение, включающее проектную составляющую. Цель проекта&nbsp;&mdash; воспитать новое поколение дизайнеров, умеющих решать проектные задачи через исследование и&nbsp;переосмысление контекста. Проект существует при поддержке Yandex.
+  | #{@activity.description}
 
 p
   ul.list-inline
@@ -10,15 +10,9 @@ p
         | Campus.pdf
       |  2.6 Mb
     li
-      a href="http://campusrussia.com/"
+      a href="#{@activity.link}"
         | www.campusrussia.com
 
 .img-anons-main
   .img-anons-crop
     img.img-anons src="#{image_path('activities/campus.png')}" width="auto" height="100%"
-
-
-
-= link_to 'Edit', edit_activity_path(@activity)
-'|
-= link_to 'Back', activities_path
