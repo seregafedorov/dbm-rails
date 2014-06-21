@@ -6,9 +6,10 @@ p
 p
   ul.list-inline
     li
-      a href="#{@activity.attachment.url}"
-        | #{@activity.attachment.file.filename}
-      |  #{number_to_human_size(@activity.attachment.file.size)}
+      - unless @activity.attachment.file.blank?
+        a href="#{@activity.attachment.url}"
+          | #{@activity.attachment.file.filename}
+        |  #{number_to_human_size(@activity.attachment.file.size)}
     li
       a href="#{@activity.link}"
         | #{@activity.link_text}
