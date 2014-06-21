@@ -1,7 +1,7 @@
 h1.h3
-  | #{@activity.name}
+  | #{@activity.heading}
 p
-  | #{@activity.description}
+  | #{@activity.description.html_safe}
 
 p
   ul.list-inline
