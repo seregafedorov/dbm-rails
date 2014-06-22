@@ -21,3 +21,7 @@
 
 en:
   hello: "Hello world"
+  active_admin:
+    globalize:
+      language:
+        ru: 'Russian'

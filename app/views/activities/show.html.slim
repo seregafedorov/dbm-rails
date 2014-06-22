@@ -16,4 +16,4 @@ p
 
 .img-anons-main
   .img-anons-crop
-    img.img-anons src="#{image_path('activities/campus.png')}" width="auto" height="100%"
+    img.img-anons src="#{@activity.first_gallery_image.try(:image).try(:url)}" width="auto" height="100%"
