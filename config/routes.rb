@@ -2,9 +2,16 @@ Rails.application.routes.draw do
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
+
+
+
   resources :projects
 
-  resources :activities, :only => [:show, :index]
+  scope '(:locale)', locale: /#{I18n.available_locales.join('|')}/ do
+    resources :activities, :only => [:show, :index]
+  end
+
+
 
   root to: 'frontpage#index'
 
