@@ -14,18 +14,18 @@ ActiveAdmin.register Project do
 
   form do |f|
     f.inputs 'Детали' do
-      f.translated_inputs 'Translated fields', switch_locale: false do |t|
+      f.translated_inputs 'Translated fields', switch_locale: false, auto_sort: false do |t|
         t.input :name, as: :string
         t.input :card_info, as: :string
       end
 
       f.has_many :project_sections do |ps|
-        ps.translated_inputs 'Translated fields', switch_locale: false do |t|
+        ps.translated_inputs 'Translated fields', switch_locale: false, auto_sort: false do |t|
           t.input :name, as: :string
         end
 
         ps.has_many :project_section_images do |psi|
-          psi.translated_inputs 'Translated fields', switch_locale: false do |t|
+          psi.translated_inputs 'Translated fields', switch_locale: false, auto_sort: false do |t|
             t.input :caption, as: :string
           end
           psi.input :image, as: :file
