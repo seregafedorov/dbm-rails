@@ -3,12 +3,9 @@ Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 
-
-
-  resources :projects
-
   scope '(:locale)', locale: /#{I18n.available_locales.join('|')}/ do
     resources :activities, :only => [:show, :index]
+    resources :projects, :only => [:show]
   end
 
 
