@@ -110,7 +110,7 @@ ActiveAdmin.setup do |config|
   # roots for each namespace.
   #
   # Default:
-  # config.root_to = 'dashboard#index'
+  config.root_to = 'projects#index'
 
 
   # == Admin Comments
@@ -200,6 +200,15 @@ ActiveAdmin.setup do |config|
   #       menu.add label: "My Great Website", url: "http://www.mygreatwebsite.com", html_options: { target: :blank }
   #     end
   #   end
+  # config.namespace :admin do |admin|
+  #
+  #   # This block will edit the default menu
+  #   admin.build_menu do |menu|
+  #     menu.add id: :project,    label: 'Проекты',     priority: 3
+  #     menu.add id: :activity, label: 'Активности', priority: 9
+  #   end
+  #
+  # end
 
 
   # == Download Links

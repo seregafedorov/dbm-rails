@@ -1,5 +1,5 @@
 ActiveAdmin.register Project do
-
+  menu :priority => 2
   permit_params :name, :card_info,
                 translations_attributes: [:id, :name, :card_info, :locale],
                 project_sections_attributes: [
