@@ -1,0 +1,6 @@
+ru:
+  active_admin:
+    globalize:
+      language:
+        ru: 'Русский'
+        en: 'Английский'
