@@ -1,7 +1,7 @@
 a.nav.strong href="#{projects_path}"
   | #{I18n.t('menu.projects')}
-- if @menu_projects
+- if @projects
   ul.list-unstyled.strong
-    - for project in @menu_projects
+    - for project in @projects
       li
         a.nav href="#{project_path(project)}" = project.name
