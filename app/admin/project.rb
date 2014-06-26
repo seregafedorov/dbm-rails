@@ -1,5 +1,8 @@
 ActiveAdmin.register Project do
   menu :priority => 2
+
+  config.filters = false
+
   permit_params :name, :card_info, :feat_heading, :feat_lead, :card_image, :tag, :slugged_url,
                 translations_attributes: [:id, :name, :card_info, :feat_heading, :feat_lead, :locale, :tag],
                 project_sections_attributes: [

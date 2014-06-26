@@ -1,5 +1,8 @@
 ActiveAdmin.register Activity do
   menu :priority => 3
+
+  config.filters = false
+
   permit_params :name, :heading, :description, :link, :link_text, :attachment, :slugged_url,
                 gallery_images_attributes: [:image, :id, :_destroy],
                 translations_attributes: [:id, :name, :heading, :description, :link, :link_text, :locale]
