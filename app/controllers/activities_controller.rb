@@ -2,7 +2,7 @@ class ActivitiesController < ApplicationController
   before_action :set_activity, only: [:show]
 
   def index
-    @menu_activities = Activity.all
+    @activities = Activity.all
   end
 
   def show

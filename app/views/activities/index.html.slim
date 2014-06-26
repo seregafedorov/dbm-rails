@@ -1,2 +1,16 @@
 h1
-  | Инициативы
+  | #{I18n.t('menu.activities')}
+- for activity in @activities
+  h1 = activity.id
+  p = activity.name
+  p = activity.heading
+  p = activity.description
+  p = activity.link
+  p = activity.link_text
+
+  p = activity.attachment_url
+  hr/
+  - for gallery_image in activity.gallery_images
+    p = gallery_image.image_url
+  br/
+  br/
