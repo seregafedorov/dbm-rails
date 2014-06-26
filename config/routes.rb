@@ -3,14 +3,13 @@ Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 
+  root to: 'frontpage#index'
+
   scope '(:locale)', locale: /#{I18n.available_locales.join('|')}/ do
+    get '/' => 'frontpage#index'
     resources :activities, :only => [:show, :index]
     resources :projects, :only => [:show]
   end
-
-
-
-  root to: 'frontpage#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
