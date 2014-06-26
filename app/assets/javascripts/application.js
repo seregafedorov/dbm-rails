@@ -10,6 +10,6 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery/build/release
+//= require jquery/jquery
 //= require jquery-ui/ui/jquery-ui
 //= require_tree .
