@@ -1,4 +1,7 @@
 ru:
+  menu:
+    activities: 'Инициативы'
+    projects: 'Проекты'
   active_admin:
     globalize:
       language:
