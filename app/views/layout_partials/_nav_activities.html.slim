@@ -1,6 +1,7 @@
 a.nav.strong href="#{activities_path}"
   | #{I18n.t('menu.activities')}
-ul.list-unstyled.strong
-  - for activity in @menu_activities
-    li
-      a.nav href="#{activity_path(activity)}" #{activity.name}
+- if @menu_activities
+  ul.list-unstyled.strong
+    - for activity in @menu_activities
+      li
+        a.nav href="#{activity_path(activity)}" = activity.name

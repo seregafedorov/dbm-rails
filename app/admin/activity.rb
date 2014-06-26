@@ -8,17 +8,23 @@ ActiveAdmin.register Activity do
   form do |f|
     f.inputs 'Детали' do
       f.translated_inputs 'Translated fields', switch_locale: false do |t|
-        t.input :name
-        t.input :heading
+        t.input :name, as: :string
+        t.input :heading, as: :string
         t.input :description
-        t.input :link
-        t.input :link_text
+        t.input :link, as: :string
+        t.input :link_text, as: :string
       end
 
       f.input :attachment, :as => :file
 
       f.has_many :gallery_images do |gallery_image|
-        gallery_image.input :image
+
+        gallery_image.inputs 'Attachment', :multipart => true do
+          gallery_image.input :image, :as => :file, :hint => gallery_image.template.image_tag(gallery_image.object.image_url)
+          gallery_image.input :image_cache, :as => :hidden
+        end
+
+        # gallery_image.input :image, :as => :file
       end
 
     end

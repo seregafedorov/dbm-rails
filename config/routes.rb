@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     get '/' => 'frontpage#index'
     get '/team' => 'frontpage#team'
     resources :activities, :only => [:show, :index]
-    resources :projects, :only => [:show]
+    resources :projects, :only => [:show, :index]
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
