@@ -18,7 +18,7 @@ ActiveAdmin.register Project do
         t.input :name, as: :string
         t.input :card_info, as: :string
         t.input :feat_heading, as: :string
-        t.input :feat_lead, as: :string
+        t.input :feat_lead, as: :text
         t.input :tag, as: :string
       end
 
@@ -29,7 +29,7 @@ ActiveAdmin.register Project do
         ps.translated_inputs 'Translated fields', switch_locale: false, auto_sort: false do |t|
           t.input :name, as: :string
           t.input :subheading, as: :string
-          t.input :section_text, as: :string
+          t.input :section_text, as: :text
         end
 
         ps.has_many :project_section_images do |psi|
