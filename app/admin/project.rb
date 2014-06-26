@@ -1,6 +1,6 @@
 ActiveAdmin.register Project do
   menu :priority => 2
-  permit_params :name, :card_info, :feat_heading, :feat_lead, :card_image, :tag,
+  permit_params :name, :card_info, :feat_heading, :feat_lead, :card_image, :tag, :slugged_url,
                 translations_attributes: [:id, :name, :card_info, :feat_heading, :feat_lead, :locale, :tag],
                 project_sections_attributes: [
                     :id, :_destroy,
@@ -14,6 +14,7 @@ ActiveAdmin.register Project do
 
   form do |f|
     f.inputs 'Детали' do
+      f.input :slugged_url, as: :string
       f.translated_inputs 'Translated fields', switch_locale: false, auto_sort: false do |t|
         t.input :name, as: :string
         t.input :card_info, as: :string
@@ -45,6 +46,13 @@ ActiveAdmin.register Project do
 
     end
     f.actions
+  end
+
+
+  controller do
+    def find_resource
+      scoped_collection.friendly.find(params[:id])
+    end
   end
 
 end

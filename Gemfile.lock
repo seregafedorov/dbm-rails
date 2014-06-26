@@ -108,6 +108,8 @@ GEM
     erubis (2.7.0)
     eventmachine (1.0.3)
     execjs (2.2.0)
+    friendly_id (5.0.4)
+      activerecord (>= 4.0.0)
     globalize (4.0.1)
       activemodel (>= 4.0.0, < 5)
       activerecord (>= 4.0.0, < 5)
@@ -224,6 +226,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   devise
   formtastic!
+  friendly_id (~> 5.0.0)
   globalize (~> 4.0.1)
   high_voltage
   jbuilder (~> 2.0)

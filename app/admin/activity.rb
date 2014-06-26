@@ -1,12 +1,13 @@
 ActiveAdmin.register Activity do
   menu :priority => 3
-  permit_params :name, :heading, :description, :link, :link_text, :attachment,
+  permit_params :name, :heading, :description, :link, :link_text, :attachment, :slugged_url,
                 gallery_images_attributes: [:image, :id, :_destroy],
                 translations_attributes: [:id, :name, :heading, :description, :link, :link_text, :locale]
 
 
   form do |f|
     f.inputs 'Детали' do
+      f.input :slugged_url, as: :string
       f.translated_inputs 'Translated fields', switch_locale: false do |t|
         t.input :name, as: :string
         t.input :heading, as: :string
@@ -16,6 +17,7 @@ ActiveAdmin.register Activity do
       end
 
       f.input :attachment, :as => :file
+
 
       f.has_many :gallery_images do |gallery_image|
 
@@ -30,5 +32,12 @@ ActiveAdmin.register Activity do
     end
     f.actions
   end
+
+  controller do
+    def find_resource
+      scoped_collection.friendly.find(params[:id])
+    end
+  end
+
 
 end

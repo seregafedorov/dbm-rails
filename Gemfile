@@ -23,6 +23,8 @@ gem 'globalize', '~> 4.0.1'
 
 gem 'rails-i18n', '~> 4.0.0'
 
+gem 'friendly_id', '~> 5.0.0'
+
 gem 'activeadmin-globalize', github: 'stefanoverna/activeadmin-globalize', branch: 'master'
 
 # Use sqlite3 as the database for Active Record
