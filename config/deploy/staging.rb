@@ -5,7 +5,7 @@ set :rvm_type, :user
 # SSHKit.config.command_map[:rake] = "#{fetch(:default_env)[:rvm_bin_path]}/rvm ruby-#{fetch(:rvm_ruby_version)} do bundle exec rake"
 
 
-set :pid_file_path, '/tmp/unicorn.dmb.staging.pid'
+set :pid_file_path, "#{deploy_to}/shared/pids/unicorn.pid"
 #set :unicorn_config_path, 'config/unicorn/production.rb'
 
 # Simple Role Syntax
