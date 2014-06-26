@@ -63,6 +63,12 @@ group :development do
 end
 
 
+group :production do
+  gem 'pg'
+  #gem 'pg_power'
+end
+
+
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
