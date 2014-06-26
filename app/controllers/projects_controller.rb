@@ -2,7 +2,7 @@ class ProjectsController < ApplicationController
   before_action :set_project, only: [:show]
 
   def index
-    @menu_projects = Project.all
+    @projects = Project.all
   end
 
   def show
