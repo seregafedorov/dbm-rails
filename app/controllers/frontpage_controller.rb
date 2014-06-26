@@ -6,4 +6,8 @@ class FrontpageController < ApplicationController
 
   end
 
+  def team
+
+  end
+
 end
