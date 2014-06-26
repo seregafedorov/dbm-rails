@@ -1,7 +1,7 @@
 ActiveAdmin.register Project do
   menu :priority => 2
-  permit_params :name, :card_info, :feat_heading, :feat_lead, :card_image,
-                translations_attributes: [:id, :name, :card_info, :feat_heading, :feat_lead, :locale],
+  permit_params :name, :card_info, :feat_heading, :feat_lead, :card_image, :tag,
+                translations_attributes: [:id, :name, :card_info, :feat_heading, :feat_lead, :locale, :tag],
                 project_sections_attributes: [
                     :id, :_destroy,
                     translations_attributes: [:id, :name, :subheading, :section_text, :locale],
@@ -19,6 +19,7 @@ ActiveAdmin.register Project do
         t.input :card_info, as: :string
         t.input :feat_heading, as: :string
         t.input :feat_lead, as: :string
+        t.input :tag, as: :string
       end
 
       f.input :card_image, as: :file, :hint => f.template.image_tag(f.object.card_image_url)
