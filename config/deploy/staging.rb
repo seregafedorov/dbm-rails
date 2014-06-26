@@ -1,8 +1,6 @@
 set :stage, :staging
 set :deploy_to, '/var/www/apps/dbm_staging'
 set :rvm_ruby_version, '2.1.1@dbm_staging'
-#set :rails_env, 'staging'
-#ENV['rails_env'] = 'staging'
 set :rvm_type, :user
 # SSHKit.config.command_map[:rake] = "#{fetch(:default_env)[:rvm_bin_path]}/rvm ruby-#{fetch(:rvm_ruby_version)} do bundle exec rake"
 

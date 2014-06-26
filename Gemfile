@@ -63,9 +63,13 @@ group :development do
 end
 
 
-group :production, :staging do
+group :production do
   gem 'pg'
   #gem 'pg_power'
+end
+
+group :staging do
+  gem 'pg'
 end
 
 
