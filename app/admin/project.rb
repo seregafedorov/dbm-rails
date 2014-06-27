@@ -30,6 +30,9 @@ ActiveAdmin.register Project do
       f.input :card_image_cache, :as => :hidden
 
       f.has_many :project_sections do |ps|
+        unless ps.object.new_record?
+          ps.input :_destroy, :as => :boolean, :label => 'Удалить'
+        end
         ps.translated_inputs 'Translated fields', switch_locale: false, auto_sort: false do |t|
           t.input :name, as: :string
           t.input :subheading, as: :string

@@ -7,7 +7,7 @@ class Project < ActiveRecord::Base
   friendly_id :slugged_url, use: [:slugged, :history]
 
   active_admin_translates :name, :card_info, :feat_heading, :feat_lead, :tag
-  accepts_nested_attributes_for :project_sections
+  accepts_nested_attributes_for :project_sections, :allow_destroy => true
 
   mount_uploader :card_image, BaseUploader
 
