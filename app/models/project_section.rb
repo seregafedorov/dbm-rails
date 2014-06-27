@@ -12,4 +12,6 @@ class ProjectSection < ActiveRecord::Base
 
   default_scope -> { order('position') }
 
+  scope :by_create_and_id, -> { order('created_at, id') }
+
 end
