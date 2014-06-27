@@ -6,7 +6,7 @@ ActiveAdmin.register Project do
   permit_params :name, :card_info, :feat_heading, :feat_lead, :card_image, :tag, :slugged_url,
                 translations_attributes: [:id, :name, :card_info, :feat_heading, :feat_lead, :locale, :tag],
                 project_sections_attributes: [
-                    :id, :_destroy,
+                    :id, :_destroy, :position,
                     translations_attributes: [:id, :name, :subheading, :section_text, :locale],
                     project_section_images_attributes: [
                         :id, :_destroy, :image,
@@ -33,6 +33,7 @@ ActiveAdmin.register Project do
         unless ps.object.new_record?
           ps.input :_destroy, :as => :boolean, :label => 'Удалить'
         end
+        ps.input :position
         ps.translated_inputs 'Translated fields', switch_locale: false, auto_sort: false do |t|
           t.input :name, as: :string
           t.input :subheading, as: :string

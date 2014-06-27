@@ -1,6 +1,7 @@
 class ProjectSection < ActiveRecord::Base
   translates :name, :subheading, :section_text
 
+
   belongs_to :project
   has_many :project_section_images
 
@@ -9,5 +10,6 @@ class ProjectSection < ActiveRecord::Base
   accepts_nested_attributes_for :project_section_images
 
 
+  default_scope -> { order('position') }
 
 end
