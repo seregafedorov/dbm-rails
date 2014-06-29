@@ -1,25 +1,10 @@
-h1
-  | Проекты
-
-
-- for project in @projects
-  hr/
-  h2 Все поля
-  p = project.id
-  p = project.name
-  p = project.card_info
-  p = project.feat_heading
-  p = project.card_image_url
-
-  - for project_section in project.project_sections
-    h3 Секционненькие
-    p = project_section.name
-    p = project_section.subheading
-    p = project_section.section_text
-    - for project_section_image in project_section.project_section_images
-      h4 картиночка для секции
-      p = project_section_image.caption
-      p = project_section_image.image_url
-
-  br/
-  br/
+ul.activities-list
+  - for project in @projects
+    li.activities-list-item
+      a.activities-list-item-img href="#"
+        .img-anons-crop.img-anons-crop-min
+          img.img-anons src='#{project.card_image_url}' width="100%" height="auto"
+      a.activities-list-item-heading href="#"
+        | #{project.feat_heading}
+      .activities-list-item-tag
+        | #{project.card_info}

@@ -1,16 +1,12 @@
-h1
-  | #{I18n.t('menu.activities')}
-- for activity in @activities
-  h1 = activity.id
-  p = activity.name
-  p = activity.heading
-  p = activity.description
-  p = activity.link
-  p = activity.link_text
-
-  p = activity.attachment_url
-  hr/
-  - for gallery_image in activity.gallery_images
-    p = gallery_image.image_url
-  br/
-  br/
+ul.activities-list
+  - for activities in @activities
+    li.activities-list-item
+      a.activities-list-item-img href="#"
+        - for gallery_image in activities.gallery_images
+          .img-anons-crop.img-anons-crop-min
+            img.img-anons src='#{gallery_image.image_url}' width="100%" height="auto"
+      a.activities-list-item-heading href="#"
+        | #{activities.heading}
+      / .activities-list-item-tag
+      /   | Мобильное приложение
+      
