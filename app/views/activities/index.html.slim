@@ -1,12 +1,12 @@
 ul.activities-list
-  - for activities in @activities
+  - for activity in @activities
     li.activities-list-item
-      a.activities-list-item-img href="#"
-        - for gallery_image in activities.gallery_images
+      a.activities-list-item-img href="#{activity_path(activity)}"
+        - for gallery_image in activity.gallery_images
           .img-anons-crop.img-anons-crop-min
             img.img-anons src='#{gallery_image.image_url}' width="100%" height="auto"
-      a.activities-list-item-heading href="#"
-        | #{activities.heading}
+      a.activities-list-item-heading href="#{activity_path(activity)}"
+        | #{activity.heading}
       / .activities-list-item-tag
       /   | Мобильное приложение
       
