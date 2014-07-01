@@ -16,16 +16,19 @@ class Project < ActiveRecord::Base
 
   def set_project_section_position
 
-    positions = project_sections.map { |item| item.position }
+    if project_sections.size > 0
+      positions = project_sections.map { |item| item.position }
 
-    max_position = positions.max { |p1, p2| p1 <=> p2 }
-    max_position = max_position + 10
+      max_position = positions.max { |p1, p2| p1 <=> p2 }
+      max_position = max_position + 10
 
-    project_sections.each do |section|
-      if section.position == 0
-        section.position = max_position
-        max_position = max_position + 10
+      project_sections.each do |section|
+        if section.position == 0
+          section.position = max_position
+          max_position = max_position + 10
+        end
       end
+
     end
 
   end
