@@ -2,7 +2,8 @@ ul.activities-list
   - for activity in @activities
     li.activities-list-item
       a.activities-list-item-img href="#{activity_path(activity)}"
-        - for gallery_image in activity.gallery_images
+        = image_tag activity.card_image_url, { class: 'img-anons'}
+        /- for gallery_image in activity.gallery_images
           .img-anons style="background-image: url(#{gallery_image.image_url})"
       a.activities-list-item-heading href="#{activity_path(activity)}"
         | #{activity.heading}

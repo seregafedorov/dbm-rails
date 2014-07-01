@@ -10,6 +10,9 @@ class Activity < ActiveRecord::Base
 
 
   mount_uploader :attachment, UnchangedNameUploader
+  mount_uploader :card_image, Md5NameUploader
+
+
   accepts_nested_attributes_for :gallery_images
 
 

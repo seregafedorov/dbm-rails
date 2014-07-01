@@ -3,7 +3,7 @@ ActiveAdmin.register Activity do
 
   config.filters = false
 
-  permit_params :name, :heading, :description, :link, :link_text, :attachment, :slugged_url,
+  permit_params :name, :heading, :description, :link, :link_text, :attachment, :slugged_url, :card_image,
                 gallery_images_attributes: [:image, :id, :_destroy],
                 translations_attributes: [:id, :name, :heading, :description, :link, :link_text, :locale]
 
@@ -19,8 +19,8 @@ ActiveAdmin.register Activity do
         t.input :link_text, as: :string
       end
 
-      f.input :attachment, :as => :file
-
+      f.input :attachment, :as => :file, :hint => f.template.link_to(f.object.attachment.file.filename, f.object.attachment_url )
+      f.input :card_image, :as => :file, :hint => f.template.image_tag(f.object.card_image_url)
 
       f.has_many :gallery_images do |gallery_image|
 
