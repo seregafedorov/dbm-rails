@@ -9,7 +9,7 @@ class Activity < ActiveRecord::Base
   active_admin_translates :name, :heading, :description, :link, :link_text
 
 
-  mount_uploader :attachment, BaseUploader
+  mount_uploader :attachment, UnchangedNameUploader
   accepts_nested_attributes_for :gallery_images
 
 

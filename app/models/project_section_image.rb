@@ -9,6 +9,6 @@ class ProjectSectionImage < ActiveRecord::Base
 
   belongs_to :project_section
 
-  mount_uploader :image, BaseUploader
+  mount_uploader :image, Md5NameUploader
 
 end

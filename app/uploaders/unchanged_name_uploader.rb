@@ -1,0 +1,3 @@
+class UnchangedNameUploader < BaseUploader
+
+end
