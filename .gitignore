@@ -19,6 +19,4 @@
 vendor/assets/components
 db/schema.rb
 
-*.png
-
-*.jpg
+public/uploads/
