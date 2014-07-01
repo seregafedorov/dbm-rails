@@ -76,7 +76,7 @@ strong,
 
 .list-team {
   li {
-    margin-bottom: 23px;
+    margin-bottom: $line-height-base;
   }
 }
 
@@ -86,8 +86,12 @@ strong,
 }
 
 .nav-wrapper {
-  position: fixed;
-  z-index: 1040;
+  position: relative;
+  margin-bottom: $line-height-base;
+  @media (min-width: $grid-float-breakpoint) {
+    position: fixed;
+    z-index: 1040;
+  }
 }
 
 .nav {
@@ -99,6 +103,9 @@ strong,
 }
 
 .nav-brand {
+  display: block;
+  position: relative;
+  margin-top: 46px;
   @media (min-width: $grid-float-breakpoint) {
     position: fixed;
     bottom: $body-paddings * 1.5;
@@ -143,6 +150,9 @@ strong,
   background-size: cover;
   background-color: #f5f5f8;
   margin-bottom: 23px;
+  @media (max-width: $screen-phone) {
+    max-height: 300px;
+  }
 }
 
 .img-anons-main {
