@@ -85,6 +85,11 @@ strong,
   margin-bottom: ($line-height-base * 2);
 }
 
+.nav-wrapper {
+  position: fixed;
+  z-index: 1040;
+}
+
 .nav {
   color: #000;
   &:hover,
