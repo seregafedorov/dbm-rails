@@ -14,6 +14,4 @@ p
       a href="#{@activity.link}"
         | #{@activity.link_text}
 
-.img-anons-main
-  .img-anons-crop
-    img.img-anons src="#{@activity.first_gallery_image.try(:image).try(:url)}" width="auto" height="100%"
+.img-anons-main style="background-image: url(#{@activity.first_gallery_image.try(:image).try(:url)})"
