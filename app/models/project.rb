@@ -12,9 +12,9 @@ class Project < ActiveRecord::Base
   mount_uploader :card_image, Md5NameUploader
 
 
-  before_save :set_project_section_position
+  # before_validation :set_project_section_position
 
-  def set_project_section_position
+  def set_project_section_positions!
 
     if project_sections.size > 0
       positions = project_sections.map { |item| item.position }
@@ -24,7 +24,7 @@ class Project < ActiveRecord::Base
 
       project_sections.each do |section|
         if section.position == 0
-          section.position = max_position
+          section.update_attribute(:position, max_position)
           max_position = max_position + 10
         end
       end

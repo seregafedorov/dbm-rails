@@ -3,16 +3,20 @@ ActiveAdmin.register Project do
 
   config.filters = false
 
-  permit_params :name, :card_info, :feat_heading, :feat_lead, :card_image, :tag, :slugged_url,
+  permit_params :name, :card_info, :feat_heading, :feat_lead, :card_image, :tag, :slugged_url, :locale,
                 translations_attributes: [:id, :name, :card_info, :feat_heading, :feat_lead, :locale, :tag],
                 project_sections_attributes: [
-                    :id, :_destroy, :position,
+                    :id, :_destroy, :position, :locale,
                     translations_attributes: [:id, :name, :subheading, :section_text, :locale],
                     project_section_images_attributes: [
                         :id, :_destroy, :image,
                         translations_attributes: [:id, :caption, :locale]
                     ]
                 ]
+
+  after_save do |p|
+    p.set_project_section_positions!
+  end
 
 
   form do |f|
