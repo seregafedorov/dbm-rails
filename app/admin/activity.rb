@@ -19,7 +19,7 @@ ActiveAdmin.register Activity do
         t.input :link_text, as: :string
       end
 
-      f.input :attachment, :as => :file, :hint => f.template.link_to(f.object.attachment.file.filename, f.object.attachment_url )
+      f.input :attachment, :as => :file, :hint => (f.template.link_to(f.object.attachment.file.filename, f.object.attachment_url ) if f.object.attachment.file)
       f.input :card_image, :as => :file, :hint => f.template.image_tag(f.object.card_image_url)
 
       f.has_many :gallery_images do |gallery_image|
