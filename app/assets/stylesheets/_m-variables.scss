@@ -1,3 +1,21 @@
+@font-face {
+    font-family: 'HelveticaWorldRegular';
+    src: url(image_path('f/H-R/h-r.eot'));
+    src: url(image_path('f/H-R/h-r.eot')) format('embedded-opentype'),
+         url(image_path('f/H-R/h-r.woff')) format('woff'),
+         url(image_path('f/H-R/h-r.ttf')) format('truetype'),
+         url(image_path('f/H-R/h-r.svg#HelveticaWorldRegular')) format('svg');
+}
+
+@font-face {
+    font-family: 'HelveticaWorldBold';
+    src: url(image_path('f/H-B/h-b.eot'));
+    src: url(image_path('f/H-B/h-b.eot')) format('embedded-opentype'),
+         url(image_path('f/H-B/h-b.woff')) format('woff'),
+         url(image_path('f/H-B/h-b.ttf')) format('truetype'),
+         url(image_path('f/H-B/h-b.svg#HelveticaWorldBold')) format('svg');
+}
+
 $grid-columns:          6;
 //** Padding between columns. Gets divided in half for the left and right.
 $grid-gutter-width:     12px;
@@ -8,12 +26,15 @@ $brand-primary:         #0000ff;
 
 $text-color:            #000;
 
+$font-family-sans-serif:  "HelveticaWorldRegular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-family-heading:     "HelveticaWorldBold", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-family-base:        $font-family-sans-serif;
+
 $font-size-base: 15px;
 $line-height-base: 23px;
 
 $heading-font-size: $font-size-base;
 $heading-line-height: $line-height-base;
-$heading-font-weight: bold;
 
 //** Link hover color set via `darken()` function.
 $link-hover-color:      $text-color;
