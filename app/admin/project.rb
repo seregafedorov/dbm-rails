@@ -22,6 +22,7 @@ ActiveAdmin.register Project do
   form do |f|
     f.inputs 'Детали' do
       f.input :slugged_url, as: :string
+      f.input :position, as: :number
       f.translated_inputs 'Translated fields', switch_locale: false, auto_sort: false do |t|
         t.input :name, as: :string
         t.input :card_info, as: :string

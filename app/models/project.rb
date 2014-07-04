@@ -11,6 +11,8 @@ class Project < ActiveRecord::Base
 
   mount_uploader :card_image, Md5NameUploader
 
+  default_scope -> { order(:position, :updated_at)}
+
 
   # before_validation :set_project_section_position
 
