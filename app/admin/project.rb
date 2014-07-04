@@ -3,7 +3,7 @@ ActiveAdmin.register Project do
 
   config.filters = false
 
-  permit_params :name, :card_info, :feat_heading, :feat_lead, :card_image, :tag, :slugged_url, :locale,
+  permit_params :name, :card_info, :feat_heading, :feat_lead, :card_image, :tag, :slugged_url, :locale, :position,
                 translations_attributes: [:id, :name, :card_info, :feat_heading, :feat_lead, :locale, :tag],
                 project_sections_attributes: [
                     :id, :_destroy, :position, :locale,
@@ -16,6 +16,28 @@ ActiveAdmin.register Project do
 
   after_save do |p|
     p.set_project_section_positions!
+  end
+
+  member_action :show_on_main, :method => :put do
+    Project.transaction do
+      project = Project.friendly.find(params[:id])
+      Project.update_all({:shown_on_main => false})
+      Activity.update_all({:shown_on_main => false})
+      project.update_attribute(:shown_on_main, true)
+      redirect_to admin_projects_path
+    end
+  end
+
+  index do
+    column :id
+    column :name do |project|
+      project.name
+    end
+    actions do |project|
+      unless project.shown_on_main
+        link_to 'Показать на главной', show_on_main_admin_project_path(project), :method => :put
+      end
+    end
   end
 
 

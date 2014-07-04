@@ -3,9 +3,31 @@ ActiveAdmin.register Activity do
 
   config.filters = false
 
-  permit_params :name, :heading, :description, :link, :link_text, :attachment, :slugged_url, :card_image,
+  permit_params :name, :heading, :description, :link, :link_text, :attachment, :slugged_url, :card_image, :position,
                 gallery_images_attributes: [:image, :id, :_destroy],
                 translations_attributes: [:id, :name, :heading, :description, :link, :link_text, :locale]
+
+  member_action :show_on_main, :method => :put do
+    Activity.transaction do
+      activity = Activity.friendly.find(params[:id])
+      Project.update_all({:shown_on_main => false})
+      Activity.update_all({:shown_on_main => false})
+      activity.update_attribute(:shown_on_main, true)
+      redirect_to admin_activities_path
+    end
+  end
+
+  index do
+    column :id
+    column :name do |activity|
+      activity.name
+    end
+    actions do |activity|
+      unless activity.shown_on_main
+        link_to 'Показать на главной', show_on_main_admin_activity_path(activity), :method => :put
+      end
+    end
+  end
 
 
   form do |f|
@@ -20,7 +42,7 @@ ActiveAdmin.register Activity do
         t.input :link_text, as: :string
       end
 
-      f.input :attachment, :as => :file, :hint => (f.template.link_to(f.object.attachment.file.filename, f.object.attachment_url ) if f.object.attachment.file)
+      f.input :attachment, :as => :file, :hint => (f.template.link_to(f.object.attachment.file.filename, f.object.attachment_url) if f.object.attachment.file)
       f.input :card_image, :as => :file, :hint => f.template.image_tag(f.object.card_image_url)
 
       f.has_many :gallery_images do |gallery_image|
