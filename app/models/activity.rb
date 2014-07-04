@@ -3,6 +3,7 @@ class Activity < ActiveRecord::Base
   has_many :gallery_images, as: :gallery_imageable
 
   extend FriendlyId
+
   friendly_id :slugged_url, use: [:slugged, :history]
 
   translates :name, :heading, :description, :link, :link_text
