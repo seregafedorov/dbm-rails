@@ -1,11 +1,14 @@
 doctype html
 html
   head
+    title
+      = yield :title
     meta charset='utf-8'
     link rel="shortcut icon" href="#{ActionController::Base.asset_host}/favicon.ico" type="image/x-icon"
     = csrf_meta_tags
     = stylesheet_link_tag 'index'
     = javascript_include_tag 'application'
+
   body
     .container-fluid
       .row
