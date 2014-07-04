@@ -16,4 +16,9 @@ p
       a href="#{@activity.link}"
         | #{@activity.link_text}
 
-.img-anons-main style="background-image: url(#{@activity.first_gallery_image.try(:image).try(:url)})"
+/ .img-anons-main style="background-image: url(#{@activity.first_gallery_image.try(:image).try(:url)})"
+
+#carousel-example-generic.carousel.slide data-ride="carousel"
+  .carousel-inner
+    .item.active
+      img.img-anons-main style="background-image: url(#{@activity.first_gallery_image.try(:image).try(:url)})"
