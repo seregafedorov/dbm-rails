@@ -12,5 +12,6 @@ p
     br/
     | +7 915 077 6823
 
-a href=""
-  .img-anons-main style="background-image: url(#{image_path('main.jpg')})"
+a href="#{link_to_project_or_activity(@main_page_object)}"
+  | #{@main_page_object.name}
+  .img-anons-main style="background-image: url(#{@main_page_object.card_image_url})"
