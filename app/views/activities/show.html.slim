@@ -18,7 +18,14 @@ p
 
 / .img-anons-main style="background-image: url(#{@activity.first_gallery_image.try(:image).try(:url)})"
 
-#carousel-example-generic.carousel.slide data-ride="carousel"
+#carousel.slide data-ride="carousel"
   .carousel-inner
-    .item.active
-      img.img-anons-main style="background-image: url(#{@activity.first_gallery_image.try(:image).try(:url)})"
+    - first = true
+    - for gallery_image in @activity.gallery_images
+      .item class="#{first ? 'active' : ''}"
+        img.img-anons-main src="#{gallery_image.try(:image_url)}"
+      - first = false
+  /a.left.carousel-control href="#carousel-example-generic" role="button" data-slide="prev"
+  /  span.glyphicon.glyphicon-chevron-left
+  /a.right.carousel-control href="#carousel-example-generic" role="button" data-slide="next"
+  /  span.glyphicon.glyphicon-chevron-right

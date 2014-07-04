@@ -12,4 +12,6 @@
 //
 //= require jquery/jquery
 //= require jquery-ui/ui/jquery-ui
-//= require_tree .
+//= require active_admin
+//= require bootstrap/dist/js/bootstrap
+//= require main
