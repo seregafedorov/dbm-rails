@@ -1,4 +1,4 @@
-= title "#{I18n.t('menu.projects')} | #{@project.name}"
+= title "#{@project.feat_heading}"
 
 h1 = @project.feat_heading
 p.lead = @project.feat_lead.html_safe
@@ -6,7 +6,7 @@ p.lead = @project.feat_lead.html_safe
 - for project_section in @project.project_sections
   h2 = project_section.name
   h3 = project_section.subheading
-  p 
+  p
     | #{project_section.section_text.try(:html_safe)}
   - for project_section_image in project_section.project_section_images
     .img-post-wrapper
@@ -14,4 +14,3 @@ p.lead = @project.feat_lead.html_safe
       .row
         .col-sm-3.col-sm-offset-3
           p = project_section_image.caption.try(:html_safe)
-      
