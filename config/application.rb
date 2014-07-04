@@ -21,7 +21,7 @@ module Dbm
     config.i18n.available_locales = [:ru, :en]
     config.i18n.default_locale = :ru
 
-    config.assets.precompile += %w( application.js index.css )
+    config.assets.precompile += %w( application.js index.css active_admin/active_admin_globalize_fix.js )
 
     config.assets.enabled = true
     config.assets.paths << Rails.root.join('vendor', 'assets', 'components')
