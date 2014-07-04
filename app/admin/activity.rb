@@ -46,7 +46,9 @@ ActiveAdmin.register Activity do
       f.input :card_image, :as => :file, :hint => f.template.image_tag(f.object.card_image_url)
 
       f.has_many :gallery_images do |gallery_image|
-
+        unless gallery_image.object.new_record?
+          gallery_image.input :_destroy, :as => :boolean, :label => 'Удалить'
+        end
         gallery_image.inputs 'Attachment', :multipart => true do
           gallery_image.input :image, :as => :file, :hint => gallery_image.template.image_tag(gallery_image.object.image_url)
           gallery_image.input :image_cache, :as => :hidden

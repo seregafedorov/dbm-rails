@@ -16,7 +16,7 @@ class Activity < ActiveRecord::Base
   default_scope -> { order(:position, :updated_at)}
 
 
-  accepts_nested_attributes_for :gallery_images
+  accepts_nested_attributes_for :gallery_images, allow_destroy: true
 
 
   def first_gallery_image
