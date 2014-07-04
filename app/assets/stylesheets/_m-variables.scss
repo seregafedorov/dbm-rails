@@ -1,7 +1,7 @@
 @font-face {
   font-family: 'HelveticaWorldRegular';
   src: url(image_path('f/H-R/h-r.eot'));
-  src: url(image_path('f/H-R/h-r.eot')) format('embedded-opentype'),
+  src: url(image_path('f/H-R/h-r.eot?#iefix')) format('embedded-opentype'),
        url(image_path('f/H-R/h-r.woff')) format('woff'),
        url(image_path('f/H-R/h-r.ttf')) format('truetype'),
        url(image_path('f/H-R/h-r.svg#HelveticaWorldRegular')) format('svg');
@@ -10,7 +10,7 @@
 @font-face {
   font-family: 'HelveticaWorldBold';
   src: url(image_path('f/H-B/h-b.eot'));
-  src: url(image_path('f/H-B/h-b.eot')) format('embedded-opentype'),
+  src: url(image_path('f/H-B/h-b.eot?#iefix')) format('embedded-opentype'),
        url(image_path('f/H-B/h-b.woff')) format('woff'),
        url(image_path('f/H-B/h-b.ttf')) format('truetype'),
        url(image_path('f/H-B/h-b.svg#HelveticaWorldBold')) format('svg');
