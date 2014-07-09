@@ -4,6 +4,7 @@ html
     title
       = yield :title
     meta charset='utf-8'
+    = favicon_link_tag 'favicon.ico'
     link rel="shortcut icon" href="#{ActionController::Base.asset_host}/favicon.ico" type="image/x-icon"
     = csrf_meta_tags
     = stylesheet_link_tag 'index'
