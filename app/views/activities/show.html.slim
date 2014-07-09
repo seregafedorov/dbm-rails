@@ -11,7 +11,7 @@ p
       li
         a href="#{@activity.attachment.url}"
           | #{@activity.attachment.file.filename}
-        |  #{number_to_human_size(@activity.attachment.file.size)}
+        |  #{number_to_human_size(@activity.attachment.file.size, {precision: 0})}
     li
       a href="#{@activity.link}"
         | #{@activity.link_text}
