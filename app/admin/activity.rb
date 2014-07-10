@@ -3,7 +3,7 @@ ActiveAdmin.register Activity do
 
   config.filters = false
 
-  permit_params :name, :heading, :description, :link, :link_text, :attachment, :slugged_url, :card_image, :position,
+  permit_params :name, :heading, :description, :link, :link_text, :attachment, :slugged_url, :card_image, :position, :vimeo_video_str,
                 gallery_images_attributes: [:image, :id, :_destroy],
                 translations_attributes: [:id, :name, :heading, :description, :link, :link_text, :locale]
 
@@ -44,6 +44,8 @@ ActiveAdmin.register Activity do
 
       f.input :attachment, :as => :file, :hint => (f.template.link_to(f.object.attachment.file.filename, f.object.attachment_url) if f.object.attachment.file)
       f.input :card_image, :as => :file, :hint => f.template.image_tag(f.object.card_image_url)
+
+      f.input :vimeo_video_str, as: :string
 
       f.has_many :gallery_images do |gallery_image|
         unless gallery_image.object.new_record?

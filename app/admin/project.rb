@@ -6,7 +6,7 @@ ActiveAdmin.register Project do
   permit_params :name, :card_info, :feat_heading, :feat_lead, :card_image, :tag, :slugged_url, :locale, :position,
                 translations_attributes: [:id, :name, :card_info, :feat_heading, :feat_lead, :locale, :tag],
                 project_sections_attributes: [
-                    :id, :_destroy, :position, :locale,
+                    :id, :_destroy, :position, :locale, :vimeo_video_str,
                     translations_attributes: [:id, :name, :subheading, :section_text, :locale],
                     project_section_images_attributes: [
                         :id, :_destroy, :image,
@@ -67,6 +67,7 @@ ActiveAdmin.register Project do
           t.input :section_text, as: :text
         end
 
+        ps.input :vimeo_video_str, as: :string
         ps.has_many :project_section_images do |psi|
           psi.translated_inputs 'Translated fields', switch_locale: false, auto_sort: false do |t|
             t.input :caption, as: :string

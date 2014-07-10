@@ -15,11 +15,13 @@ p
     li
       a href="#{@activity.link}"
         | #{@activity.link_text}
-
-#carousel.slide data-ride="carousel"
-  .carousel-inner
-    - first = true
-    - for gallery_image in @activity.gallery_images
-      .item class="#{first ? 'active' : ''}"
-        .img-anons-main style="background-image: url(#{gallery_image.try(:image_url)})"
-      - first = false
+- if @activity.vimeo_video_str.blank?
+  #carousel.slide data-ride="carousel"
+    .carousel-inner
+      - first = true
+      - for gallery_image in @activity.gallery_images
+        .item class="#{first ? 'active' : ''}"
+          .img-anons-main style="background-image: url(#{gallery_image.try(:image_url)})"
+        - first = false
+- else
+  iframe src="//player.vimeo.com/video/#{@activity.vimeo_video_str}" width='100%' height='400px' frameborder='0' webkitallowfullscreen='' mozallowfullscreen='' allowfullscreen=''
