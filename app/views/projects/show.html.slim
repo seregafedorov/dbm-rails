@@ -15,5 +15,10 @@ p.lead = @project.feat_lead.html_safe
         .row
           .col-sm-3.col-sm-offset-3
             p = project_section_image.caption.try(:html_safe)
+
   - else
-    iframe src="//player.vimeo.com/video/#{project_section.vimeo_video_str}" width='100%' height='400px' frameborder='0' webkitallowfullscreen='' mozallowfullscreen='' allowfullscreen=''
+
+    .img-post-wrapper
+      .img-post
+        .embed-responsive.embed-responsive-16by9
+          iframe src="//player.vimeo.com/video/#{project_section.vimeo_video_str}" webkitallowfullscreen='' mozallowfullscreen='' allowfullscreen=''

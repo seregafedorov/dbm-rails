@@ -23,5 +23,9 @@ p
         .item class="#{first ? 'active' : ''}"
           .img-anons-main style="background-image: url(#{gallery_image.try(:image_url)})"
         - first = false
+
 - else
-  iframe src="//player.vimeo.com/video/#{@activity.vimeo_video_str}" width='100%' height='400px' frameborder='0' webkitallowfullscreen='' mozallowfullscreen='' allowfullscreen=''
+
+  .video-anons-main
+    .embed-responsive.embed-responsive-16by9
+      iframe src="//player.vimeo.com/video/#{@activity.vimeo_video_str}" webkitallowfullscreen='' mozallowfullscreen='' allowfullscreen=''
