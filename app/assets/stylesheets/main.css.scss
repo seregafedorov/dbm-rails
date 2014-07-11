@@ -1,11 +1,12 @@
-@import "bootstrap-sass-official/vendor/assets/stylesheets/bootstrap/variables";
+@import "bootstrap-sass-official/assets/stylesheets/bootstrap/variables";
 @import "m-variables";
 
 
-@import "bootstrap-sass-official/vendor/assets/stylesheets/bootstrap/mixins";
-@import "bootstrap-sass-official/vendor/assets/stylesheets/bootstrap/normalize";
-@import "bootstrap-sass-official/vendor/assets/stylesheets/bootstrap/scaffolding";
-@import "bootstrap-sass-official/vendor/assets/stylesheets/bootstrap/grid";
-@import "bootstrap-sass-official/vendor/assets/stylesheets/bootstrap/carousel";
+@import "bootstrap-sass-official/assets/stylesheets/bootstrap/mixins";
+@import "bootstrap-sass-official/assets/stylesheets/bootstrap/normalize";
+@import "bootstrap-sass-official/assets/stylesheets/bootstrap/scaffolding";
+@import "bootstrap-sass-official/assets/stylesheets/bootstrap/grid";
+@import "bootstrap-sass-official/assets/stylesheets/bootstrap/carousel";
+@import "bootstrap-sass-official/assets/stylesheets/bootstrap/responsive-embed";
 
 @import "m-theme";
