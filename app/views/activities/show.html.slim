@@ -26,7 +26,7 @@ p
               .img-anons-main style="background-image: url(#{gallery_image.try(:image_url)})"
             - first = false
     - else
-      .img-anons-main
+      .img-anons-main style="background-image: url(#{@activity.gallery_images.first.try(:image_url)})"
 
 - else
 
