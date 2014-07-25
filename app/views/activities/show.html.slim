@@ -17,15 +17,17 @@ p
         | #{@activity.link_text}
 - if @activity.vimeo_video_str.blank?
   - if @activity.gallery_images.size > 0
-    #carousel.slide data-ride="carousel"
-      .carousel-inner
-        - first = true
-        - for gallery_image in @activity.gallery_images
-          .item class="#{first ? 'active' : ''}"
-            .img-anons-main style="background-image: url(#{gallery_image.try(:image_url)})"
-          - first = false
-  - else
-    .img-anons-main
+    - if @activity.gallery_images.size > 1
+      #carousel.slide data-ride="carousel"
+        .carousel-inner
+          - first = true
+          - for gallery_image in @activity.gallery_images
+            .item class="#{first ? 'active' : ''}"
+              .img-anons-main style="background-image: url(#{gallery_image.try(:image_url)})"
+            - first = false
+    - else
+      .img-anons-main
+
 - else
 
   .video-anons-main
