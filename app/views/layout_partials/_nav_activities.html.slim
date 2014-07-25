@@ -5,5 +5,8 @@
     ul.list-unstyled
       - for activity in @activities
         li
-          a.nav href="#{activity_path(activity)}" = activity.name
+          - if @activity && (@activity.id == activity.id)
+            a.nav.active href="#{activity_path(activity)}" = activity.name
+          - else
+            a.nav href="#{activity_path(activity)}" = activity.name
 
