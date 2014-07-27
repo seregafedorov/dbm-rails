@@ -29,7 +29,7 @@ p
       .img-anons-main style="background-image: url(#{@activity.gallery_images.first.try(:image_url)})"
 
 - else
-
   .video-anons-main
-    .embed-responsive.embed-responsive-16by9
-      iframe src="//player.vimeo.com/video/#{@activity.vimeo_video_str}" webkitallowfullscreen='' mozallowfullscreen='' allowfullscreen=''
+    .img-anons-main.vimeo-preview data-vimeo-id="#{@activity.vimeo_video_str}" style=""
+    /.embed-responsive.embed-responsive-16by9
+    /  iframe src="//player.vimeo.com/video/#{@activity.vimeo_video_str}" webkitallowfullscreen='' mozallowfullscreen='' allowfullscreen=''
