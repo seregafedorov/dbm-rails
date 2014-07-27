@@ -10,17 +10,20 @@
             $carouselElement.carousel('next');
         });
 
-        $(document).on('click', '.video-div', function (e) {
+        $(document).on('click', '.video-div-inner-close', function (e) {
             $(e.target).remove();
+            $('.video-div').remove();
 
         });
 
         $('.vimeo-preview').on('click', function (e) {
             var vimeoId = $(e.target).data('vimeo-id');
             console.log(vimeoId);
-            var videoDiv = $('<div class="video-div">' +
-                '<div class="">' +
+            var videoDiv = $('<div class="video-div"><div class="video-div-inner-close">CLOSE</div>' +
+                '<div class="video-div-inner">' +
+                '<div class="embed-responsive embed-responsive-16by9">' +
                 '<iframe src="//player.vimeo.com/video/' + vimeoId + '" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""/>' +
+                '</div>' +
                 '</div>' +
                 '</div>');
             $('body').append(videoDiv);
