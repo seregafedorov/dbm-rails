@@ -205,11 +205,12 @@ strong,
     display: block;
     top: 48%;
     left: 48%;
-    width: 60px;
-    height: 60px;
+    width: 80px;
+    height: 80px;
     text-align: center;
-    content: "PLAY";
-    color: red;
+    background-image: asset_url('play.png');
+    content: " ";
+//    color: red;
   }
 }
 

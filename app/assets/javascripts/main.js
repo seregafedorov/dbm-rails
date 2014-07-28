@@ -11,8 +11,10 @@
         });
 
         $(document).on('click', '.video-div-inner-close', function (e) {
-            $(e.target).remove();
-            $('.video-div').remove();
+            var videoDiv = $(e.target).closest('.video-div');
+            if(videoDiv) {
+                videoDiv.remove();
+            }
 
         });
 
