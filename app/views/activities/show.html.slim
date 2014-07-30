@@ -26,10 +26,10 @@
             - first = true
             - for gallery_image in @activity.gallery_images
               .item class="#{first ? 'active' : ''}"
-                .content-img-inner style="background-image: url(#{gallery_image.try(:image_url)})"
+                .content-img-inner style="background-image: url(#{gallery_image.try(:big_1280x1280).try(:url)})"
               - first = false
       - else
-        .content-img-inner style="background-image: url(#{@activity.gallery_images.first.try(:image_url)})"
+        .content-img-inner style="background-image: url(#{@activity.gallery_images.first.try(:big_1280x1280).try(:url)})"
 
   - else
     .content-img-inner.vimeo-preview data-vimeo-id="#{@activity.vimeo_video_str}" style="background-image: url(#{@activity.preview_video_image_url})"
