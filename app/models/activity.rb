@@ -12,7 +12,7 @@ class Activity < ActiveRecord::Base
 
   mount_uploader :attachment, UnchangedNameUploader
   mount_uploader :card_image, CardImageUploader
-  mount_uploader :preview_video_image, Md5NameUploader
+  mount_uploader :preview_video_image, GalleryImageUploader
 
   default_scope -> { order(:position, :updated_at)}
 
