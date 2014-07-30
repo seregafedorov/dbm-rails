@@ -58,7 +58,7 @@ li {
   .h1, .h2, .h3, .h4, .h5,
   .lead,
   p, ul, li {
-    padding-right: 100px;
+    /* padding-right: 100px; */
   }
 }
 
@@ -121,10 +121,16 @@ strong,
 }
 
 .nav-brand {
-  position: fixed;
-  right: $body-paddings;
-  top: $body-paddings;
+  display: none;
+  @media (min-width: 640px) {
+    display: block;
+    position: fixed;
+    right: $body-paddings;
+    top: $body-paddings;
+  }
   @media (min-width: $grid-float-breakpoint) {
+    display: block;
+    position: fixed;
     left: $body-paddings;
     bottom: $body-paddings * 1.5;
     top: inherit;
@@ -213,11 +219,6 @@ strong,
 
 .vimeo-preview {
   cursor: pointer;
-  width: 100%;
-  height: 100%;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
   @include opacity(1);
   @include transition(opacity .15s ease-out);
   &:after {
@@ -292,6 +293,7 @@ strong,
 
 .content {
   display: table;
+  width: 100%;
 
   @media (max-width: 767px) {
     height: 100%;
