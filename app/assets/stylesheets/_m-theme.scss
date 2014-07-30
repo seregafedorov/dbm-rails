@@ -245,7 +245,6 @@ strong,
   left: 0;
   right: 0;
   z-index: 1040;
-  /* padding: 70px 0; */
 }
 
 .video-div-inner {
@@ -311,7 +310,6 @@ strong,
   height: 1px;
   padding-right: 36px;
   padding-bottom: 18px;
-  background-color: yellow;
   @media (min-width: 767px) {
     padding-bottom: 29px;
   }
@@ -320,7 +318,6 @@ strong,
 .content-img {
   display: table-row;
   width: 100%;
-  background-color: blue;
 
   @media (max-width: 767px) {
     height: 100%;
@@ -368,5 +365,4 @@ strong,
     height: 280px;
     background-position: center top;
   }
-
 }
