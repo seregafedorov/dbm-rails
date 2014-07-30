@@ -1,21 +1,21 @@
 = title 'Мастерская Димы Барбанеля'
 
-  .content-text
-    p
-      strong
-        | Мастерская <sup></sup> — междисциплинарная
-        a href="/team/"
-          |  проектная группа
-        |. Мы способны формулировать и решать социально значимые проектные задачи через исследование и переосмысление контекста
+.content-text
+  p
+    strong
+      | Мастерская <sup></sup> — междисциплинарная
+      a href="/team/"
+        |  проектная группа
+      |. Мы способны формулировать и решать социально значимые проектные задачи через исследование и переосмысление контекста
 
-    p
-      strong
-        a href="mailto: ask@masterskaya.pro"
-          | ask@masterskaya.pro
-        br/
-        | +7 915 077 6823
+  p
+    strong
+      a href="mailto: ask@masterskaya.pro"
+        | ask@masterskaya.pro
+      br/
+      | +7 915 077 6823
 
-  - if @main_page_object
+- if @main_page_object
 
-    a.content-img href="#{link_to_project_or_activity(@main_page_object)}"
-      .content-img-inner style="background-image: url(#{@main_page_object.card_image.big_1280x1280.url})"
+  a.content-img href="#{link_to_project_or_activity(@main_page_object)}"
+    .content-img-inner style="background-image: url(#{@main_page_object.card_image.big_1280x1280.url})"
