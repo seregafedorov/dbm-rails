@@ -53,7 +53,7 @@ ActiveAdmin.register Project do
         t.input :tag, as: :string
       end
 
-      f.input :card_image, as: :file, :hint => f.template.image_tag(f.object.card_image_url)
+      f.input :card_image, as: :file, :hint => f.template.image_tag(f.object.card_image_url, width: 400, height: 'auto' )
       f.input :card_image_cache, :as => :hidden
 
       f.has_many :project_sections do |ps|
@@ -72,7 +72,7 @@ ActiveAdmin.register Project do
           psi.translated_inputs 'Translated fields', switch_locale: false, auto_sort: false do |t|
             t.input :caption, as: :string
           end
-          psi.input :image, as: :file, :hint => psi.template.image_tag(psi.object.image_url)
+          psi.input :image, as: :file, :hint => psi.template.image_tag(psi.object.image_url, width: 400, height: 'auto' )
           psi.input :image_cache, as: :hidden
         end
 

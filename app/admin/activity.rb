@@ -43,11 +43,11 @@ ActiveAdmin.register Activity do
       end
 
       f.input :attachment, :as => :file, :hint => (f.template.link_to(f.object.attachment.file.filename, f.object.attachment_url) if f.object.attachment.file)
-      f.input :card_image, :as => :file, :hint => f.template.image_tag(f.object.card_image_url)
+      f.input :card_image, :as => :file, :hint => f.template.image_tag(f.object.card_image_url,  width: 400, height: 'auto' )
 
       f.input :vimeo_video_str, as: :string
       f.inputs 'Preview image', :multipart => true do
-        f.input :preview_video_image, :as => :file, :hint => f.template.image_tag(f.object.preview_video_image_url)
+        f.input :preview_video_image, :as => :file, :hint => f.template.image_tag(f.object.preview_video_image_url,  width: 400, height: 'auto' )
         f.input :preview_video_image_cache, :as => :hidden
       end
 
@@ -56,7 +56,7 @@ ActiveAdmin.register Activity do
           gallery_image.input :_destroy, :as => :boolean, :label => 'Удалить'
         end
         gallery_image.inputs 'Attachment', :multipart => true do
-          gallery_image.input :image, :as => :file, :hint => gallery_image.template.image_tag(gallery_image.object.image_url)
+          gallery_image.input :image, :as => :file, :hint => gallery_image.template.image_tag(gallery_image.object.image_url,  width: 400, height: 'auto' )
           gallery_image.input :image_cache, :as => :hidden
         end
 
