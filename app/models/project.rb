@@ -9,7 +9,7 @@ class Project < ActiveRecord::Base
   active_admin_translates :name, :card_info, :feat_heading, :feat_lead, :tag
   accepts_nested_attributes_for :project_sections, :allow_destroy => true
 
-  mount_uploader :card_image, Md5NameUploader
+  mount_uploader :card_image, CardImageUploader
 
   default_scope -> { order(:position, :updated_at)}
 

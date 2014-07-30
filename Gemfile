@@ -9,6 +9,8 @@ gem 'slim-rails'
 gem 'high_voltage'
 
 gem 'carrierwave'
+gem 'mini_magick'
+gem 'carrierwave-processing'
 
 gem 'thin'
 

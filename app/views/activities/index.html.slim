@@ -5,6 +5,6 @@ ul.activities-list
   - for activity in @activities
     li.activities-list-item
       a.activities-list-item-img href="#{activity_path(activity)}"
-        .img-anons style="background-image: url(#{activity.card_image_url})"
+        .img-anons style="background-image: url(#{activity.card_image.big_1280x800.url})"
       a.activities-list-item-heading href="#{activity_path(activity)}"
         | #{activity.heading}
