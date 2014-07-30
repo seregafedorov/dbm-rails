@@ -27,8 +27,19 @@ $font-family-sans-serif:  "HelveticaWorldRegular", "Helvetica Neue", Helvetica, 
 $font-family-heading:     "HelveticaWorldBold", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
 $font-family-base:        $font-family-sans-serif;
-$font-size-base:          15px;
-$line-height-base:        23px;
+
+$font-size-sm:            11px;
+$line-height-sm:          15px;
+
+$font-size-md:            14px;
+$line-height-md:          20px;
+
+$font-size-lg:            15px;
+$line-height-lg:          23px;
+
+$font-size-base:          $font-size-sm;
+$line-height-base:        $line-height-sm;
+
 
 $heading-font-size:       $font-size-base;
 $heading-line-height:     $line-height-base;

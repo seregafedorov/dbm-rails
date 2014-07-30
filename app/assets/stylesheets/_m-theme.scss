@@ -4,17 +4,22 @@ body {
   letter-spacing: 1px;
   font-size: $font-size-base;
   line-height: $line-height-base;
-
-//  -webkit-font-smoothing: antialiased;
-//  -moz-osx-font-smoothing: grayscale;
+  @media (min-width: 1024px) {
+    font-size: $font-size-md;
+    line-height: $line-height-md;
+  }
+  @media (min-width: 1280px) {
+    font-size: $font-size-lg;
+    line-height: $line-height-lg;
+  }
 }
 
 h1, h2, h3, h4, h5,
 .h1, .h2, .h3, .h4, .h5 {
   font-family: $font-family-heading;
   font-weight: normal;
-  font-size: $heading-font-size;
-  line-height: $heading-line-height;
+  font-size: inherit;
+  line-height: inherit;
   margin-top: 0;
   margin-bottom: $line-height-base;
 }
@@ -41,6 +46,15 @@ p, ul, li {
 
 li {
   margin-bottom: 0;
+}
+
+@media (min-width: 460px) and (max-width: 767px) {
+  h1, h2, h3, h4, h5,
+  .h1, .h2, .h3, .h4, .h5,
+  .lead,
+  p, ul, li {
+    padding-right: 100px;
+  }
 }
 
 a {
@@ -102,12 +116,13 @@ strong,
 }
 
 .nav-brand {
-  display: block;
-  position: relative;
-  margin-top: 46px;
+  position: fixed;
+  right: $body-paddings;
+  top: $body-paddings;
   @media (min-width: $grid-float-breakpoint) {
-    position: fixed;
+    left: $body-paddings;
     bottom: $body-paddings * 1.5;
+    top: inherit;
   }
 }
 
@@ -149,9 +164,6 @@ strong,
   background-size: cover;
   /* background-color: #f5f5f8; */
   margin-bottom: 23px;
-  @media (max-width: $screen-phone) {
-    max-height: 300px;
-  }
 }
 
 .img-anons-main {
@@ -162,7 +174,14 @@ strong,
     margin: 0;
     padding-left: 6px;
     width: 50%;
-    min-height: 50%;
+    /* min-height: 50%; */
+  }
+}
+
+.img-anons-main {
+  @media (min-width: 1024px) and (max-height: 480px) {
+    height: 50px;
+    max-height: 50px;
   }
 }
 
