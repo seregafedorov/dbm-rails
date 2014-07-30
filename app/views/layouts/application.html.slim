@@ -19,7 +19,8 @@ html
         .col-sm-1
           = render :partial => 'layout_partials/nav_projects'
 
-        .col-sm-4.col-md-4.col-lg-3.col-lg-offset-1
-          = yield
+    .content-wrapper
+      .content
+        = yield
 
     = render :partial => 'layout_partials/nav_brand'
