@@ -5,7 +5,7 @@ ul.activities-list
   - for project in @projects
     li.activities-list-item
       a.activities-list-item-img href="#{project_path(project)}"
-        .img-anons style="background-image: url(#{project.card_image_url})"
+        img.img-anons width='100%' height='auto' alt='' src="#{project.card_image.big_1280x800.url}"
       a.activities-list-item-heading href="#{project_path(project)}"
         | #{project.feat_heading}
       .activities-list-item-tag

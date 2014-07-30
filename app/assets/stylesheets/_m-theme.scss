@@ -164,8 +164,7 @@ strong,
   font-weight: bold;
 }
 
-.img-anons-main,
-.img-anons {
+.img-anons-main {
   position: relative;
   width: 100%;
   height: 400px;
@@ -173,6 +172,10 @@ strong,
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
+  margin-bottom: 23px;
+}
+
+.img-anons {
   margin-bottom: 23px;
 }
 
