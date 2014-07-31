@@ -1,6 +1,6 @@
 html,
 body {
-  height: 99.92%;
+  height: 99.93%;
   @media (min-height: 640px) {
     height: 99.95%;
   }
@@ -239,6 +239,19 @@ strong,
     background-position: center center;
     content: " ";
     @include opacity(.8);
+    @media (min-height: 640px) {
+      background-position: center 53%;
+    }
+    @media (min-height: 800px) {
+      background-position: center 57%;
+    }
+    @media (min-height: 900px) {
+      background-position: center 60%;
+    }
+    @media (min-height: 1024px) {
+      background-position: center 63%;
+    }
+
   }
   &:hover {
     @include opacity(.9);
