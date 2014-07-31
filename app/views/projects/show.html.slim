@@ -4,7 +4,8 @@
   - unless @project.feat_heading.blank?
     h1 = @project.feat_heading
   - unless @project.feat_lead.blank?
-    p.lead = @project.feat_lead.html_safe
+    .lead
+      p = @project.feat_lead.html_safe
 
   - for project_section in @project.project_sections
     - unless project_section.name.blank?
