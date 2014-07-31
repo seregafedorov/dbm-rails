@@ -1,28 +1,29 @@
 = title "#{@project.feat_heading}"
 
-- unless @project.feat_heading.blank?
-  h1 = @project.feat_heading
-- unless @project.feat_lead.blank?
-  p.lead = @project.feat_lead.html_safe
+.content-text
+  - unless @project.feat_heading.blank?
+    h1 = @project.feat_heading
+  - unless @project.feat_lead.blank?
+    p.lead = @project.feat_lead.html_safe
 
-- for project_section in @project.project_sections
-  - unless project_section.name.blank?
-    h2 = project_section.name
-  - unless project_section.subheading.blank?
-    h3 = project_section.subheading
-  - unless project_section.section_text.blank?
-    p = project_section.section_text.try(:html_safe)
-  - if project_section.vimeo_video_str.blank?
-    - for project_section_image in project_section.project_section_images
+  - for project_section in @project.project_sections
+    - unless project_section.name.blank?
+      h2 = project_section.name
+    - unless project_section.subheading.blank?
+      h3 = project_section.subheading
+    - unless project_section.section_text.blank?
+      p = project_section.section_text.try(:html_safe)
+    - if project_section.vimeo_video_str.blank?
+      - for project_section_image in project_section.project_section_images
+        .img-post-wrapper
+          img.img-post src="#{project_section_image.image_url}" width="100%" height="auto"
+          .row
+            .col-sm-3.col-sm-offset-3
+              - unless project_section_image.caption.blank?
+                p = project_section_image.caption.try(:html_safe)
+
+    - else
       .img-post-wrapper
-        img.img-post src="#{project_section_image.image_url}" width="100%" height="auto"
-        .row
-          .col-sm-3.col-sm-offset-3
-            - unless project_section_image.caption.blank?
-              p = project_section_image.caption.try(:html_safe)
-
-  - else
-    .img-post-wrapper
-      .img-post
-        .embed-responsive.embed-responsive-16by9
-          iframe src="//player.vimeo.com/video/#{project_section.vimeo_video_str}" webkitallowfullscreen='' mozallowfullscreen='' allowfullscreen=''
+        .img-post
+          .embed-responsive.embed-responsive-16by9
+            iframe src="//player.vimeo.com/video/#{project_section.vimeo_video_str}" webkitallowfullscreen='' mozallowfullscreen='' allowfullscreen=''
