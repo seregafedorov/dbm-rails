@@ -93,6 +93,12 @@ strong,
 }
 
 .list-team {
+  width: 100%;
+  > li {
+    width: 35%;
+    vertical-align: top;
+    margin-right: 24px;
+  }
   li {
     margin-bottom: $line-height-base;
   }
