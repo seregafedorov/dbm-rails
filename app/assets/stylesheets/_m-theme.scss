@@ -93,9 +93,12 @@ strong,
 .list-team {
   width: 100%;
   > li {
-    width: 35%;
     vertical-align: top;
     margin-right: 24px;
+
+    @media (min-width: $grid-float-breakpoint) {
+      width: 35%;
+    }
   }
   li {
     margin-bottom: $line-height-base;
