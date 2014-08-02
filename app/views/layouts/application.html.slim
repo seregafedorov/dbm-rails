@@ -21,8 +21,8 @@ html
               span.icon-bar
             a.navbar-brand href='/'
               | Masterskaya
-            - unless @section_title.blank?
-              .section-name = @section_title
+              - unless @section_title.blank?
+                .section-name = @section_title
 
           .navbar-collapse.collapse
             = render :partial => 'layout_partials/nav_activities'
