@@ -282,7 +282,7 @@ strong,
     padding-left: 16px;
     height: 100%;
     position: absolute;
-    top: $body-paddings;
+    padding-top: $body-paddings;
   }
   @media (min-width: $screen-lg) {
     @include make-lg-column-offset(3);
@@ -401,6 +401,7 @@ strong,
   .navbar-brand {
     color: $text-color;
     padding: 6px;
+    padding-top: 20px;
     &.hover,
     &.focus {
       color: inherit;
@@ -430,7 +431,7 @@ strong,
 
 @media (min-width: $grid-float-breakpoint) {
   .navbar {
-    margin-top: $body-paddings;
+    padding-top: $body-paddings;
   }
   .navbar-header {
     display: none;
@@ -439,11 +440,19 @@ strong,
     padding: 0;
   }
   .navbar-nav {
-    @include make-sm-column(1);
+    @include make-sm-column(2);
   }
   .navbar-default .navbar-nav > li > a {
     padding: 0;
     margin: 0;
+  }
+}
+
+@media (min-width: 768px) {
+  .navbar {
+    float: left;
+    width: 50%;
+    width: 50%;
   }
 }
 
