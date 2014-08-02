@@ -186,11 +186,17 @@ strong,
 
 
 .img-post-wrapper {
-  @media (min-width: $grid-float-breakpoint) {
-    margin-left: -102%;
-  }
   + .img-post-wrapper {
     padding-top: -($line-height-base * 2);
+  }
+  @media (min-width: 768px) {
+    margin-left: -51%;
+  }
+  @media (min-width: 1024px) {
+    margin-left: -50.8%;
+  }
+  @media (min-width: 1280px) {
+    margin-left: -102%;
   }
 }
 
@@ -305,7 +311,10 @@ strong,
     height: 1px;
   }
   @media (min-width: 768px) {
-    padding-right: 0;
+    padding-right: 36px;
+  }
+  @media (min-width: 1024px) {
+    padding-right: 36px;
   }
 }
 
