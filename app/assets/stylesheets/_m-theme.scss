@@ -13,7 +13,6 @@ body {
 }
 
 body {
-  padding-top: $body-paddings;
   letter-spacing: 1px;
   font-size: $font-size-base;
   line-height: $line-height-base;
@@ -61,15 +60,6 @@ li {
   margin-bottom: 0;
 }
 
-@media (min-width: 460px) and (max-width: 767px) {
-  h1, h2, h3, h4, h5,
-  .h1, .h2, .h3, .h4, .h5,
-  .lead,
-  p, ul, li {
-    /* padding-right: 100px; */
-  }
-}
-
 a {
   color: $brand-primary;
   &:hover,
@@ -112,39 +102,21 @@ strong,
   }
 }
 
-
 .page-heading {
   margin-bottom: ($line-height-base * 2);
-}
-
-.nav-wrapper {
-  position: relative;
-  margin-bottom: $line-height-base;
-  @media (min-width: $grid-float-breakpoint) {
-    position: fixed;
-    z-index: 1040;
-  }
-}
-
-.nav {
-  color: #000;
-  &:hover,
-  &:focus {
-    color: $brand-primary;
-  }
 }
 
 .nav-brand {
   display: none;
   width: 94px;
   height: 119px;
-  @media (min-width: 640px) {
+  @media (min-width: $grid-float-breakpoint) {
     display: block;
     position: fixed;
     right: $body-paddings;
     top: $body-paddings;
   }
-  @media (min-width: $grid-float-breakpoint) {
+  @media (min-width: 768px) {
     display: block;
     position: fixed;
     left: $body-paddings;
@@ -296,11 +268,12 @@ strong,
 
 .content-wrapper {
   padding-left: 36px;
-
-  @media (min-width: $grid-float-breakpoint) {
+  @media (min-width: $screen-sm) {
     @include make-sm-column-offset(2);
     padding-left: 16px;
     height: 100%;
+    position: absolute;
+    top: $body-paddings;
   }
   @media (min-width: $screen-lg) {
     @include make-lg-column-offset(3);
@@ -311,7 +284,7 @@ strong,
 .content {
   width: 100%;
 
-  @media (min-width: $grid-float-breakpoint) {
+  @media (min-width: $screen-sm) {
     display: table;
     height: 100%;
   }
@@ -321,10 +294,15 @@ strong,
   width: 100%;
   padding-right: 36px;
   padding-bottom: 18px;
+
   @media (min-width: $grid-float-breakpoint) {
     display: table-cell;
     padding-bottom: 29px;
+    padding-right: 160px;
     height: 1px;
+  }
+  @media (min-width: 768px) {
+    padding-right: 0;
   }
 }
 
@@ -332,7 +310,7 @@ strong,
   width: 100%;
   height: auto;
 
-  @media (min-width: $grid-float-breakpoint) {
+  @media (min-width: $screen-sm) {
     display: table-row;
     height: 100%;
   }
@@ -356,17 +334,97 @@ strong,
   }
 
   // Responsive for >768px
-  @media (min-width: $grid-float-breakpoint) {
+  @media (min-width: $screen-sm) {
     display: table-cell;
     height: 100%;
     background-position: center bottom;
   }
-  @media (min-width: $grid-float-breakpoint) and (max-height: 640px) {
+  @media (min-width: $screen-sm) and (max-height: 640px) {
     background-position: center center;
   }
 
   // Responsive for >1024px
   @media (min-width: $screen-md) and (max-height: 768px) {
     background-position: center center;
+  }
+}
+
+// Navbar
+
+.navbar {
+  border: 0;
+}
+
+.navbar-brand {
+  text-transform: uppercase;
+  font-size: inherit;
+}
+
+.nav-inner {
+  color: $text-color;
+  &:hover,
+  &:focus {
+    color: $brand-primary;
+  }
+  &.active {
+    color: $brand-primary;
+  }
+}
+
+.navbar-default {
+  .navbar-nav > li > a {
+    color: $text-color;
+    line-height: inherit;
+    &:hover,
+    &.focus {
+      color: $brand-primary;
+    }
+  }
+  .navbar-brand {
+    color: $text-color;
+    padding: 6px;
+    &.hover,
+    &.focus {
+      color: inherit;
+    }
+  }
+  .navbar-toggle {
+    position: absolute;
+    text-align: center;
+    padding: 30px;
+    right: 0;
+    width: $navbar-height;
+    height: $navbar-height;
+    margin: 0;
+    border-radius: 0;
+    background-color: $brand-primary;
+    border: none;
+    &:hover,
+    &:focus {
+      background-color: $navbar-default-toggle-hover-bg;
+    }
+    .icon-bar {
+      background-color: $navbar-default-toggle-icon-bar-bg;
+      width: 20px;
+    }
+  }
+}
+
+@media (min-width: $grid-float-breakpoint) {
+  .navbar {
+    margin-top: $body-paddings;
+  }
+  .navbar-header {
+    display: none;
+  }
+  .navbar-collapse {
+    padding: 0;
+  }
+  .navbar-nav {
+    @include make-sm-column(1);
+  }
+  .navbar-nav > li > a {
+    padding: 0;
+    margin: 0;
   }
 }

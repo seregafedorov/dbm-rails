@@ -1,12 +1,12 @@
-.nav-wrapper
-  a.nav.strong href="#{activities_path}"
-    | #{I18n.t('menu.activities')}
-  - if @activities
-    ul.list-unstyled
-      - for activity in @activities
-        li
-          - if @activity && (@activity.id == activity.id)
-            a.nav.active href="#{activity_path(activity)}" = activity.name
-          - else
-            a.nav href="#{activity_path(activity)}" = activity.name
-
+ul.nav.navbar-nav
+  li
+    a.strong href="#{activities_path}"
+      | #{I18n.t('menu.activities')}
+    - if @activities
+      ul.list-unstyled
+        - for activity in @activities
+          li
+            - if @activity && (@activity.id == activity.id)
+              a.nav-inner.active href="#{activity_path(activity)}" = activity.name
+            - else
+              a.nav-inner href="#{activity_path(activity)}" = activity.name

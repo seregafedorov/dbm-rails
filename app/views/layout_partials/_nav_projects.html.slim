@@ -1,8 +1,9 @@
-.nav-wrapper
-  a.nav.strong href="#{projects_path}"
-    | #{I18n.t('menu.projects')}
-  - if @projects
-    ul.list-unstyled
-      - for project in @projects
-        li
-          a.nav href="#{project_path(project)}" = project.name
+ul.nav.navbar-nav
+  li
+    a.strong href="#{projects_path}"
+      | #{I18n.t('menu.projects')}
+    - if @projects
+      ul.list-unstyled
+        - for project in @projects
+          li
+            a.nav-inner href="#{project_path(project)}" = project.name

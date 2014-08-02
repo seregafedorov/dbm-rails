@@ -11,13 +11,19 @@ html
     = javascript_include_tag 'application'
 
   body
-    .container-fluid
-      .row
-        .col-sm-1
-          = render :partial => 'layout_partials/nav_activities'
-
-        .col-sm-1
-          = render :partial => 'layout_partials/nav_projects'
+    .navbar.navbar-default
+      .container-fluid
+        .row
+          .navbar-header
+            button.navbar-toggle.collapsed data-toggle='collapse' data-target='.navbar-collapse'
+              span.icon-bar
+              span.icon-bar
+              span.icon-bar
+            a.navbar-brand href='/'
+              | Masterskaya
+          .navbar-collapse.collapse
+            = render :partial => 'layout_partials/nav_activities'
+            = render :partial => 'layout_partials/nav_projects'
 
     .content-wrapper
       .content
