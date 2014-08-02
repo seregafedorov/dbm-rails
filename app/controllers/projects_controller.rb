@@ -1,8 +1,9 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: [:show]
+  before_action :init_projects_and_activities
 
   def index
-    @projects = Project.all
+
   end
 
   def show

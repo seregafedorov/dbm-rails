@@ -1,12 +1,13 @@
 class ActivitiesController < ApplicationController
   before_action :set_activity, only: [:show]
+  before_action :init_projects_and_activities
 
   def index
-    @activities = Activity.all
+
   end
 
   def show
-    @activities = Activity.all
+
   end
 
   private
