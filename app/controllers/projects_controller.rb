@@ -3,10 +3,11 @@ class ProjectsController < ApplicationController
   before_action :init_projects, only: [:index]
 
   def index
-
+    @section_title = I18n.t('menu.projects')
   end
 
   def show
+    @section_title = @project.name
   end
 
   private
