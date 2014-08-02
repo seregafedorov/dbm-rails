@@ -69,6 +69,9 @@ ActiveAdmin.register Project do
 
         ps.input :vimeo_video_str, as: :string
         ps.has_many :project_section_images do |psi|
+          unless psi.object.new_record?
+            psi.input :_destroy, :as => :boolean, :label => 'Удалить'
+          end
           psi.translated_inputs 'Translated fields', switch_locale: false, auto_sort: false do |t|
             t.input :caption, as: :string
           end

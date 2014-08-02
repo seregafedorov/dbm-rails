@@ -7,7 +7,7 @@ class ProjectSection < ActiveRecord::Base
 
   active_admin_translates :name, :subheading, :section_text
 
-  accepts_nested_attributes_for :project_section_images
+  accepts_nested_attributes_for :project_section_images, allow_destroy: true
 
 
   default_scope -> { order('position') }
