@@ -1,6 +1,7 @@
 class ActivitiesController < ApplicationController
   before_action :set_activity, only: [:show]
-  before_action :init_projects_and_activities
+
+  before_action :init_activities
 
   def index
 

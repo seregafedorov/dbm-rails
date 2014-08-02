@@ -12,8 +12,11 @@ class ApplicationController < ActionController::Base
     I18n.locale = params[:locale] || I18n.default_locale
   end
 
-  def init_projects_and_activities
+  def init_projects
     @projects = Project.all
+  end
+
+  def init_activities
     @activities = Activity.all
   end
 
