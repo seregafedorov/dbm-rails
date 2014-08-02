@@ -362,6 +362,7 @@ strong,
 
 .nav-inner {
   color: $text-color;
+  margin: 0 6px;
   &:hover,
   &:focus {
     color: $brand-primary;
@@ -369,12 +370,17 @@ strong,
   &.active {
     color: $brand-primary;
   }
+  @media (min-width: $grid-float-breakpoint) {
+    margin: 0;
+  }
 }
 
 .navbar-default {
   .navbar-nav > li > a {
     color: $text-color;
     line-height: inherit;
+    padding: 0 6px;
+    margin: 0;
     &:hover,
     &.focus {
       color: $brand-primary;
@@ -423,7 +429,7 @@ strong,
   .navbar-nav {
     @include make-sm-column(1);
   }
-  .navbar-nav > li > a {
+  .navbar-default .navbar-nav > li > a {
     padding: 0;
     margin: 0;
   }
