@@ -13,4 +13,8 @@ class FrontpageController < ApplicationController
 
   end
 
+  def share_callback
+
+  end
+
 end
