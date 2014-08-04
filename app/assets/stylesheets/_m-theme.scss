@@ -116,12 +116,6 @@ strong,
   @media (min-width: $grid-float-breakpoint) {
     display: block;
     position: fixed;
-    right: $body-paddings;
-    top: $body-paddings;
-  }
-  @media (min-width: 768px) {
-    display: block;
-    position: fixed;
     left: $body-paddings;
     bottom: $body-paddings;
     top: inherit;
@@ -307,14 +301,8 @@ strong,
   @media (min-width: $grid-float-breakpoint) {
     display: table-cell;
     padding-bottom: 29px;
-    padding-right: 160px;
+    padding-right: 36px;
     height: 1px;
-  }
-  @media (min-width: 768px) {
-    padding-right: 36px;
-  }
-  @media (min-width: 1024px) {
-    padding-right: 36px;
   }
 }
 
@@ -448,7 +436,7 @@ strong,
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: $grid-float-breakpoint) {
   .navbar {
     float: left;
     width: 50%;
