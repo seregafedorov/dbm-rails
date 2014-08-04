@@ -27,7 +27,11 @@
           .embed-responsive.embed-responsive-16by9
             iframe src="//player.vimeo.com/video/#{project_section.vimeo_video_str}" webkitallowfullscreen='' mozallowfullscreen='' allowfullscreen=''
 
-  ul.social-share
+  ul.share-buttons
     li
-      a.fb-share data={ title: @project.feat_heading, desc: @project.feat_lead, href: project_url(@project) } Facebook
+      a.social-share data={ type: 'fb', title: @project.feat_heading, desc: @project.feat_lead, href: project_url(@project), app_id: "#{Settings.social.fb_app_id}" } Facebook
+    li
+      a.social-share data={ type: 'vk', title: @project.feat_heading, desc: @project.feat_lead, href: project_url(@project) } VK
+    li
+      a.social-share data={ type: 'tw', title: @project.feat_heading, desc: @project.feat_lead, href: project_url(@project) } Twitter
 
