@@ -248,6 +248,15 @@ strong,
   z-index: 1040;
 }
 
+.video-div {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  width: 100%;
+  background-color: black;
+  z-index: 10px;
+}
+
 .video-div-inner {
   display: table-cell;
   vertical-align: middle;
