@@ -1,7 +1,7 @@
 = title "#{@project.feat_heading}"
 
 = content_for :additional_meta do
-  meta property="og:url" content="#{@project_url(@project)}" />
+  meta property="og:url" content="#{project_url(@project)}" />
   meta property="og:title" content="#{@project.feat_heading}" />
   meta property="og:description" content="#{@project.feat_lead}" />
   /- if @project.project_sections.size > 0
