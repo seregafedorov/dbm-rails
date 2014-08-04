@@ -70,6 +70,7 @@
             return 'https://www.facebook.com/dialog/share?display=popup'
                 + '&app_id=' + options.appId
                 + '&href=' + encodeURIComponent(options.url)
+                + '&redirect_uri=' + encodeURIComponent(options.url);
         },
 
         // Твиттер
