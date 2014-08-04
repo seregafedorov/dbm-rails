@@ -26,3 +26,8 @@
         .img-post
           .embed-responsive.embed-responsive-16by9
             iframe src="//player.vimeo.com/video/#{project_section.vimeo_video_str}" webkitallowfullscreen='' mozallowfullscreen='' allowfullscreen=''
+
+  ul.social-share
+    li
+      a.fb-share data={ title: @project.feat_heading, desc: @project.feat_lead, href: project_url(@project) } Facebook
+

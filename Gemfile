@@ -29,6 +29,8 @@ gem 'friendly_id', '~> 5.0.0'
 
 gem 'activeadmin-globalize', github: 'stefanoverna/activeadmin-globalize', branch: 'master'
 
+gem 'rails_config'
+
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use SCSS for stylesheets
