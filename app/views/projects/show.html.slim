@@ -34,6 +34,21 @@
           .embed-responsive.embed-responsive-16by9
             iframe src="//player.vimeo.com/video/#{project_section.vimeo_video_str}" webkitallowfullscreen='' mozallowfullscreen='' allowfullscreen=''
 
+  br/
+  br/
+  h3 Похожие проекты
+
+  ul.activities-list
+    - for related_project in @project.related_projects
+      li.activities-list-item
+        a.activities-list-item-img href="#{project_path(related_project)}"
+          img.img-anons width='100%' height='auto' alt='' src="#{related_project.card_image.big_1280x800.url}"
+        a.activities-list-item-heading href="#{project_path(related_project)}"
+          | #{related_project.feat_heading}
+        .activities-list-item-tag
+          | #{related_project.card_info}
+
+
 
   .social-likes
     .facebook data={app_id: "#{Settings.social.fb_app_id}", callback_url: "#{share_callback_url}"} Facebook

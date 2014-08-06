@@ -71,7 +71,7 @@ FriendlyId.defaults do |config|
   #
   # config.use Module.new {
   #   def should_generate_new_friendly_id?
-  #     slug.blank? || <your_column_name_here>_changed?
+  #     slug.blank? || slugged_url_changed?
   #   end
   # }
   #

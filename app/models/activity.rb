@@ -19,6 +19,10 @@ class Activity < ActiveRecord::Base
 
   accepts_nested_attributes_for :gallery_images, allow_destroy: true
 
+  def should_generate_new_friendly_id?
+    slug.blank? || slugged_url_changed?
+  end
+
 
   def first_gallery_image
     gallery_images.first
