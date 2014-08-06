@@ -34,9 +34,15 @@
           .embed-responsive.embed-responsive-16by9
             iframe src="//player.vimeo.com/video/#{project_section.vimeo_video_str}" webkitallowfullscreen='' mozallowfullscreen='' allowfullscreen=''
 
-  br/
-  br/
-  h3 Похожие проекты
+
+
+  ul.social-likes.list-unstyled.share-buttons
+    li.facebook data={app_id: "#{Settings.social.fb_app_id}", callback_url: "#{share_callback_url}"} Facebook
+    li.vkontakte VK
+    li.twitter Twitter
+
+
+  h2 Другие проекты
 
   ul.activities-list
     - for related_project in @project.related_projects
@@ -49,21 +55,6 @@
           | #{related_project.card_info}
 
 
-
-  .social-likes
-    .facebook data={app_id: "#{Settings.social.fb_app_id}", callback_url: "#{share_callback_url}"} Facebook
-    .vkontakte VK
-    .twitter Twitter
-
-/ul.list-unstyled.share-buttons
-      li
-        a.strong.social-share data={ type: 'fb', title: @project.feat_heading, desc: @project.feat_lead, href: project_url(@project), app_id: "#{Settings.social.fb_app_id}", callback_url: "#{share_callback_url}" } Facebook
-      li.strong
-        a.social-share data={ type: 'vk', title: @project.feat_heading, desc: @project.feat_lead, href: project_url(@project) } VK
-      li.strong
-        a.social-share data={ type: 'tw', title: @project.feat_heading, desc: @project.feat_lead, href: project_url(@project) } Twitter
-
-
 = content_for :page_javascripts do
   javascript:
     $('.social-like').socialLikes({
@@ -71,5 +62,3 @@
       title: '#{@project.feat_heading}',
       counters: true
     });
-
-

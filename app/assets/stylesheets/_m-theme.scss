@@ -466,3 +466,13 @@ strong,
 .share-buttons {
   margin-top: ($line-height-base * 6);
 }
+
+.social-likes__button {
+  color: $brand-primary;
+  cursor: pointer;
+  @extend .strong;
+}
+
+.social-likes__counter {
+  margin-left: 12px;
+}
