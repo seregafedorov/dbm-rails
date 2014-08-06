@@ -14,5 +14,5 @@
 //= require jquery-ui/ui/jquery-ui
 //= require active_admin
 //= require bootstrap/dist/js/bootstrap
-//= require share
+//= require social-likes
 //= require main

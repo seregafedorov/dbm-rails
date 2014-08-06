@@ -34,10 +34,27 @@
           .embed-responsive.embed-responsive-16by9
             iframe src="//player.vimeo.com/video/#{project_section.vimeo_video_str}" webkitallowfullscreen='' mozallowfullscreen='' allowfullscreen=''
 
-  ul.list-unstyled.share-buttons
-    li
-      a.strong.social-share data={ type: 'fb', title: @project.feat_heading, desc: @project.feat_lead, href: project_url(@project), app_id: "#{Settings.social.fb_app_id}", callback_url: "#{share_callback_url}" } Facebook
-    li.strong
-      a.social-share data={ type: 'vk', title: @project.feat_heading, desc: @project.feat_lead, href: project_url(@project) } VK
-    li.strong
-      a.social-share data={ type: 'tw', title: @project.feat_heading, desc: @project.feat_lead, href: project_url(@project) } Twitter
+
+  .social-likes
+    .facebook data={app_id: "#{Settings.social.fb_app_id}", callback_url: "#{share_callback_url}"} Facebook
+    .vkontakte VK
+    .twitter Twitter
+
+/ul.list-unstyled.share-buttons
+      li
+        a.strong.social-share data={ type: 'fb', title: @project.feat_heading, desc: @project.feat_lead, href: project_url(@project), app_id: "#{Settings.social.fb_app_id}", callback_url: "#{share_callback_url}" } Facebook
+      li.strong
+        a.social-share data={ type: 'vk', title: @project.feat_heading, desc: @project.feat_lead, href: project_url(@project) } VK
+      li.strong
+        a.social-share data={ type: 'tw', title: @project.feat_heading, desc: @project.feat_lead, href: project_url(@project) } Twitter
+
+
+= content_for :page_javascripts do
+  javascript:
+    $('.social-like').socialLikes({
+      url: '#{project_url(@project)}',
+      title: '#{@project.feat_heading}',
+      counters: true
+    });
+
+
