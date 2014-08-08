@@ -26,7 +26,7 @@
         .img-post-wrapper
           img.img-post src="#{project_section_image.image_url}" width="100%" height="auto"
         - unless project_section_image.caption.blank?
-          p = project_section_image.caption.try(:html_safe)
+          p.caption = project_section_image.caption.try(:html_safe)
 
     - else
       .img-post-wrapper
