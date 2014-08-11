@@ -30,14 +30,13 @@
             .dbm-text-flow
               = project_section.section_text.try(:html_safe)
           - if project_section.vimeo_video_str.blank?
-            .dbm-img-flow
-              .dbm-img-post-wrapper
-                - for project_section_image in project_section.project_section_images
-                  img.dbm-img-post src="#{project_section_image.image_url}" width="100%" height="auto"
-                  - unless project_section_image.caption.blank?
-                    .row
-                      .dbm-text-flow
-                        .caption = project_section_image.caption.try(:html_safe)
+            - for project_section_image in project_section.project_section_images
+              .dbm-img-flow
+                img.dbm-img-post src="#{project_section_image.image_url}" width="100%" height="auto"
+                - unless project_section_image.caption.blank?
+                  .row
+                    .dbm-text-flow
+                      .caption = project_section_image.caption.try(:html_safe)
 
           - else
             .dbm-img-flow

@@ -190,17 +190,6 @@ strong,
   }
 }
 
-.dbm-img-post-wrapper {
-  margin-top: ($line-height-lg * 3);
-}
-
-.dbm-img-post {
-  margin-bottom: 8px;
-  + .dbm-img-post {
-    margin-top: 28px;
-  }
-}
-
 .carousel-inner {
   cursor: pointer;
 }
@@ -487,4 +476,12 @@ strong,
 
 .dbm-img-flow {
   @include make-sm-column(6);
+  margin-top: ($line-height-lg * 3);
+  + .dbm-img-flow {
+    margin-top: 0;
+  }
+}
+
+.dbm-img-post {
+  margin-bottom: 8px;
 }
