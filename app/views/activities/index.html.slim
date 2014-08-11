@@ -1,9 +1,14 @@
 = title 'Инициативы Мастерской'
 
-ul.activities-list
-  - for activity in @activities
-    li.activities-list-item
-      a.activities-list-item-img href="#{activity_path(activity)}"
-        img.img-anons width='100%' height='auto' alt='' src="#{activity.card_image.big_1280x800.url}"
-      a.activities-list-item-heading href="#{activity_path(activity)}"
-        | #{activity.heading}
+.container-fluid
+  .dbm-content-wrapper
+    .dbm-content
+      .dbm-content-inner
+        .dbm-text-flow
+          ul.activities-list
+            - for activity in @activities
+              li.activities-list-item
+                a.activities-list-item-img href="#{activity_path(activity)}"
+                  img.img-anons width='100%' height='auto' alt='' src="#{activity.card_image.big_1280x800.url}"
+                a.activities-list-item-heading href="#{activity_path(activity)}"
+                  | #{activity.heading}

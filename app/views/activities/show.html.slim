@@ -1,37 +1,39 @@
 = title "#{@activity.heading}"
 
-.content-text
-  h1.h3
-    | #{@activity.heading}
-  p
-    | #{@activity.description.html_safe}
+.content-wrapper
+  .content
+    .content-text
+      h1.h3
+        | #{@activity.heading}
+      p
+        | #{@activity.description.html_safe}
 
-  ul.list-inline
-    - unless @activity.attachment.file.blank?
-      li
-        a href="#{@activity.attachment.url}"
-          | #{@activity.attachment.file.filename}
-        |  #{number_to_human_size(@activity.attachment.file.size, {precision: 0})}
-    li
-      a href="#{@activity.link}"
-        | #{@activity.link_text}
+      ul.list-inline
+        - unless @activity.attachment.file.blank?
+          li
+            a href="#{@activity.attachment.url}"
+              | #{@activity.attachment.file.filename}
+            |  #{number_to_human_size(@activity.attachment.file.size, {precision: 0})}
+        li
+          a href="#{@activity.link}"
+            | #{@activity.link_text}
 
 
-.content-img
-  - if @activity.vimeo_video_str.blank?
-    - if @activity.gallery_images.size > 0
-      - if @activity.gallery_images.size > 1
-        #carousel.slide data-ride="carousel"
-          .carousel-inner
-            - first = true
-            - for gallery_image in @activity.gallery_images
-              .item class="#{first ? 'active' : ''}"
-                .content-img-inner style="background-image: url(#{gallery_image.image.try(:big_1280x1280).try(:url)})"
-              - first = false
+    .content-img
+      - if @activity.vimeo_video_str.blank?
+        - if @activity.gallery_images.size > 0
+          - if @activity.gallery_images.size > 1
+            #carousel.slide data-ride="carousel"
+              .carousel-inner
+                - first = true
+                - for gallery_image in @activity.gallery_images
+                  .item class="#{first ? 'active' : ''}"
+                    .content-img-inner style="background-image: url(#{gallery_image.image.try(:big_1280x1280).try(:url)})"
+                  - first = false
+          - else
+            .content-img-inner style="background-image: url(#{@activity.gallery_images.first.image.try(:big_1280x1280).try(:url)})"
+
       - else
-        .content-img-inner style="background-image: url(#{@activity.gallery_images.first.image.try(:big_1280x1280).try(:url)})"
+        .content-img-inner style="background-image: url(#{@activity.preview_video_image.try(:big_1280x1280).try(:url)})"
 
-  - else
-    .content-img-inner style="background-image: url(#{@activity.preview_video_image.try(:big_1280x1280).try(:url)})"
-
-    / .content-img-inner.vimeo-preview data-vimeo-id="#{@activity.vimeo_video_str}" style="background-image: url(#{@activity.preview_video_image.try(:big_1280x1280).try(:url)})"
+        / .content-img-inner.vimeo-preview data-vimeo-id="#{@activity.vimeo_video_str}" style="background-image: url(#{@activity.preview_video_image.try(:big_1280x1280).try(:url)})"

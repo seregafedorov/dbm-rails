@@ -7,52 +7,62 @@
   - if @project.card_image
     meta property="og:image" content="#{@project.card_image.url}"
 
-.content-text
-  - unless @project.feat_heading.blank?
-    h1 = @project.feat_heading
-  - unless @project.feat_lead.blank?
-    .lead
-      p = @project.feat_lead.html_safe
+.container-fluid
+  .dbm-content-wrapper
+    .dbm-content
+      .dbm-content-inner
+        - unless @project.feat_heading.blank?
+          .dbm-text-flow
+            h1 = @project.feat_heading
+        - unless @project.feat_lead.blank?
+          .dbm-text-flow
+            .lead
+              p = @project.feat_lead.html_safe
 
-  - for project_section in @project.project_sections
-    - unless project_section.name.blank?
-      h2 = project_section.name
-    - unless project_section.subheading.blank?
-      h3 = project_section.subheading
-    - unless project_section.section_text.blank?
-      p = project_section.section_text.try(:html_safe)
-    - if project_section.vimeo_video_str.blank?
-      - for project_section_image in project_section.project_section_images
-        .img-post-wrapper
-          img.img-post src="#{project_section_image.image_url}" width="100%" height="auto"
-        - unless project_section_image.caption.blank?
-          p.caption = project_section_image.caption.try(:html_safe)
+        - for project_section in @project.project_sections
+          - unless project_section.name.blank?
+            .dbm-text-flow
+              h2 = project_section.name
+          - unless project_section.subheading.blank?
+            .dbm-text-flow
+              h3 = project_section.subheading
+          - unless project_section.section_text.blank?
+            .dbm-text-flow
+              p = project_section.section_text.try(:html_safe)
+          - if project_section.vimeo_video_str.blank?
+            .dbm-img-flow
+              .dbm-img-post-wrapper
+                - for project_section_image in project_section.project_section_images
+                  img.dbm-img-post src="#{project_section_image.image_url}" width="100%" height="auto"
+                  - unless project_section_image.caption.blank?
+                    .row
+                      .dbm-text-flow
+                        p.caption = project_section_image.caption.try(:html_safe)
 
-    - else
-      .img-post-wrapper
-        .img-post
-          .embed-responsive.embed-responsive-16by9
-            iframe src="//player.vimeo.com/video/#{project_section.vimeo_video_str}" webkitallowfullscreen='' mozallowfullscreen='' allowfullscreen=''
+          - else
+            .dbm-img-flow
+              .dbm-img-post
+                .embed-responsive.embed-responsive-16by9
+                  iframe src="//player.vimeo.com/video/#{project_section.vimeo_video_str}" webkitallowfullscreen='' mozallowfullscreen='' allowfullscreen=''
 
 
+        .dbm-text-flow
+          ul.social-likes.list-unstyled.share-buttons
+            li.facebook data={app_id: "#{Settings.social.fb_app_id}", callback_url: "#{share_callback_url}"} Facebook
+            li.vkontakte VK
+            li.twitter Twitter
 
-  ul.social-likes.list-unstyled.share-buttons
-    li.facebook data={app_id: "#{Settings.social.fb_app_id}", callback_url: "#{share_callback_url}"} Facebook
-    li.vkontakte VK
-    li.twitter Twitter
-
-
-  h2 Другие проекты
-
-  ul.activities-list
-    - for related_project in @project.related_projects
-      li.activities-list-item
-        a.activities-list-item-img href="#{project_path(related_project)}"
-          img.img-anons width='100%' height='auto' alt='' src="#{related_project.card_image.big_1280x800.url}"
-        a.activities-list-item-heading href="#{project_path(related_project)}"
-          | #{related_project.feat_heading}
-        .activities-list-item-tag
-          | #{related_project.card_info}
+        .dbm-text-flow
+          h2 Другие проекты
+          ul.activities-list
+            - for related_project in @project.related_projects
+              li.activities-list-item
+                a.activities-list-item-img href="#{project_path(related_project)}"
+                  img.img-anons width='100%' height='auto' alt='' src="#{related_project.card_image.big_1280x800.url}"
+                a.activities-list-item-heading href="#{project_path(related_project)}"
+                  | #{related_project.feat_heading}
+                .activities-list-item-tag
+                  | #{related_project.card_info}
 
 
 = content_for :page_javascripts do

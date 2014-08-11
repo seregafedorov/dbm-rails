@@ -16,25 +16,26 @@ html
     = yield :page_javascripts
 
   body
-    .navbar.navbar-default
+    .dbm-navbar
       .container-fluid
         .row
-          .navbar-header
+          .dbm-navbar-header
             button.navbar-toggle.collapsed data-toggle='collapse' data-target='.navbar-collapse'
               span.icon-bar
               span.icon-bar
               span.icon-bar
-            a.navbar-brand href='/'
-              | Masterskaya
-              - unless @section_title.blank?
-                .section-name = @section_title
+            .col-sm-6
+              a.dbm-navbar-brand href='/'
+                | Masterskaya
+                - unless @section_title.blank?
+                  .section-name = @section_title
 
           .navbar-collapse.collapse
-            = render :partial => 'layout_partials/nav_activities'
-            = render :partial => 'layout_partials/nav_projects'
+            .col-sm-1
+              = render :partial => 'layout_partials/nav_activities'
+            .col-sm-1
+              = render :partial => 'layout_partials/nav_projects'
 
-    .content-wrapper
-      .content
-        = yield
+    = yield
 
     = render :partial => 'layout_partials/nav_brand'

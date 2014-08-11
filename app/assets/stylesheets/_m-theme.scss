@@ -46,12 +46,12 @@ h1, h2, h3, h4, h5,
   font-size: inherit;
   line-height: inherit;
   margin-top: 0;
-  margin-bottom: $line-height-base;
+  margin-bottom: $line-height-lg;
 }
 
 h2,
 .h2 {
-  margin-top: ($line-height-base * 6);
+  margin-top: ($line-height-lg * 6);
 }
 h3,
 .h3 {
@@ -61,12 +61,12 @@ h3,
 .lead {
   font-family: $font-family-heading;
   font-weight: normal;
-  margin-bottom: ($line-height-base * 3);
+  margin-bottom: ($line-height-lg * 1);
 }
 
 p, ul, li {
   margin-top: 0;
-  margin-bottom: $line-height-base;
+  margin-bottom: $line-height-lg;
 }
 
 li {
@@ -100,22 +100,17 @@ strong,
   @extend .list-unstyled;
   > li {
     display: inline-block;
-    padding-right: 24px;
   }
 }
 
 .list-team {
-  width: 100%;
+  @include make-row();
   > li {
-    vertical-align: top;
-    margin-right: 24px;
-
-    @media (min-width: $grid-float-breakpoint) {
-      width: 35%;
-    }
+    @include make-sm-column(2);
+    @include make-md-column(3);
   }
   li {
-    margin-bottom: $line-height-base;
+    margin-bottom: $line-height-lg;
   }
 }
 
@@ -146,7 +141,7 @@ strong,
 
 .projects-list-item,
 .activities-list-item {
-  margin-bottom: ($line-height-base * 3);
+  margin-bottom: ($line-height-lg * 3);
 }
 
 .projects-list-item-heading,
@@ -193,25 +188,15 @@ strong,
   }
 }
 
-
-.img-post-wrapper {
-  + .img-post-wrapper {
-    padding-top: -($line-height-base * 2);
-  }
-  @media (min-width: 768px) {
-    margin-left: -51%;
-  }
-  @media (min-width: 1024px) {
-    margin-left: -50.8%;
-  }
-  @media (min-width: 1280px) {
-    margin-left: -102%;
-  }
+.dbm-img-post-wrapper {
+  margin-top: ($line-height-lg * 3);
 }
 
-.img-post {
-  margin-top: ($line-height-base * 2);
-  margin-bottom: ($line-height-base / 2);
+.dbm-img-post {
+  margin-bottom: 8px;
+  + .dbm-img-post {
+    margin-top: 28px;
+  }
 }
 
 .carousel-inner {
@@ -294,7 +279,7 @@ strong,
 }
 
 .content-wrapper {
-  padding-left: 36px;
+  margin-left: 36px;
 
   @media (min-width: $screen-sm) {
     @include make-sm-column-offset(2);
@@ -374,105 +359,6 @@ strong,
   }
 }
 
-// Navbar
-
-.navbar {
-  border: 0;
-}
-
-.navbar-brand {
-  text-transform: uppercase;
-  font-size: inherit;
-}
-
-.nav-inner {
-  color: $text-color;
-  margin: 0 6px;
-  &:hover,
-  &:focus {
-    color: $brand-primary;
-  }
-  &.active {
-    color: $brand-primary;
-  }
-  @media (min-width: $grid-float-breakpoint) {
-    margin: 0;
-  }
-}
-
-.navbar-default {
-  .navbar-nav > li > a {
-    color: $text-color;
-    line-height: inherit;
-    padding: 0 6px;
-    margin: 0;
-    &:hover,
-    &.focus {
-      color: $brand-primary;
-    }
-  }
-  .navbar-brand {
-    color: $text-color;
-    padding: 6px;
-    padding-top: 20px;
-    &.hover,
-    &.focus {
-      color: inherit;
-    }
-  }
-  .navbar-toggle {
-    position: absolute;
-    text-align: center;
-    padding: 30px;
-    right: 0;
-    width: $navbar-height;
-    height: $navbar-height;
-    margin: 0;
-    border-radius: 0;
-    background-color: $brand-primary;
-    border: none;
-    &:hover,
-    &:focus {
-      background-color: $navbar-default-toggle-hover-bg;
-    }
-    .icon-bar {
-      background-color: $navbar-default-toggle-icon-bar-bg;
-      width: 20px;
-    }
-  }
-}
-
-@media (min-width: $grid-float-breakpoint) {
-  .navbar {
-    padding-top: $body-paddings;
-  }
-  .navbar-header {
-    display: none;
-  }
-  .navbar-collapse {
-    padding: 0;
-  }
-  .navbar-nav {
-    @include make-sm-column(2);
-  }
-  .navbar-default .navbar-nav > li > a {
-    padding: 0;
-    margin: 0;
-  }
-}
-
-@media (min-width: $grid-float-breakpoint) {
-  .navbar {
-    float: left;
-    width: 50%;
-    width: 50%;
-  }
-}
-
-.section-name {
-  color: $brand-primary;
-}
-
 
 // Sharing
 
@@ -488,4 +374,115 @@ strong,
 
 .social-likes__counter {
   margin-left: 12px;
+}
+
+
+//
+// New layout test
+
+.dbm-navbar {
+  position: relative;
+  min-height: $navbar-height;
+  margin-bottom: $navbar-margin-bottom;
+  @include clearfix();
+  @media (min-width: $grid-float-breakpoint) {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    margin-top: $body-paddings;
+  }
+}
+
+.dbm-navbar-header {
+  margin-right: 100px;
+  padding-top: 24px;
+  height: $navbar-height;
+  @include clearfix();
+  @media (min-width: $grid-float-breakpoint) {
+    display: none;
+  }
+}
+
+.dbm-navbar-brand {
+  text-transform: uppercase;
+  font-size: inherit;
+  color: $text-color;
+  &.hover,
+  &.focus {
+    color: inherit;
+  }
+}
+
+.navbar-toggle {
+  position: absolute;
+  text-align: center;
+  padding: 30px;
+  top: 0;
+  right: 0;
+  width: $navbar-height;
+  height: $navbar-height;
+  margin: 0;
+  border-radius: 0;
+  background-color: $brand-primary;
+  border: none;
+  &:hover,
+  &:focus {
+    background-color: $navbar-default-toggle-hover-bg;
+  }
+  .icon-bar {
+    background-color: $navbar-default-toggle-icon-bar-bg;
+    width: 20px;
+  }
+}
+
+.navbar-collapse {
+  padding: 0;
+}
+
+.section-name {
+  color: $brand-primary;
+}
+
+.dbm-navbar-nav {
+  @extend .list-inline;
+  > li > a {
+    color: $text-color;
+    line-height: inherit;
+    &:hover,
+    &:focus {
+      color: $brand-primary;
+    }
+  }
+}
+
+.nav-inner {
+  color: $text-color;
+  &:hover,
+  &:focus {
+    color: $brand-primary;
+  }
+  &.active {
+    color: $brand-primary;
+  }
+}
+
+
+.dbm-content-wrapper {
+  padding-top: $body-paddings;
+}
+
+.dbm-content-inner {
+  @include make-row();
+}
+
+.dbm-text-flow {
+  @include make-sm-column(4);
+  @include make-sm-column-offset(2);
+  @include make-md-column(3);
+  @include make-md-column-offset(3);
+}
+
+.dbm-img-flow {
+  @include make-sm-column(6);
 }
