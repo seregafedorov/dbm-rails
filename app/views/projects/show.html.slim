@@ -17,7 +17,7 @@
         - unless @project.feat_lead.blank?
           .dbm-text-flow
             .lead
-              p = @project.feat_lead.html_safe
+              = @project.feat_lead.html_safe
 
         - for project_section in @project.project_sections
           - unless project_section.name.blank?
@@ -28,7 +28,7 @@
               h3 = project_section.subheading
           - unless project_section.section_text.blank?
             .dbm-text-flow
-              p = project_section.section_text.try(:html_safe)
+              = project_section.section_text.try(:html_safe)
           - if project_section.vimeo_video_str.blank?
             .dbm-img-flow
               .dbm-img-post-wrapper
@@ -37,7 +37,7 @@
                   - unless project_section_image.caption.blank?
                     .row
                       .dbm-text-flow
-                        p.caption = project_section_image.caption.try(:html_safe)
+                        .caption = project_section_image.caption.try(:html_safe)
 
           - else
             .dbm-img-flow
