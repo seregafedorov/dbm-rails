@@ -58,8 +58,8 @@
                 li.twitter Twitter
                 li.vkontakte Вконтакте
 
-        .dbm-text-flow
-          - unless @project.related_projects.blank?
+        - unless @project.related_projects.blank?
+          .dbm-text-flow
             h2 Другие проекты
             ul.activities-list
               - for related_project in @project.related_projects
