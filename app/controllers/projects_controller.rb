@@ -8,6 +8,7 @@ class ProjectsController < ApplicationController
 
   def show
     @section_title = @project.name
+    render :layout => 'project'
   end
 
   private

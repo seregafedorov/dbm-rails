@@ -353,8 +353,12 @@ strong,
 
 // Sharing
 
+.footer {
+  @include make-row();
+  @extend .h2;
+}
+
 .share-buttons {
-  margin-top: ($line-height-base * 12.5);
 }
 
 .social-likes__button {

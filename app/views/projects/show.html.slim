@@ -45,11 +45,18 @@
                   iframe src="//player.vimeo.com/video/#{project_section.vimeo_video_str}" webkitallowfullscreen='' mozallowfullscreen='' allowfullscreen=''
 
 
-        .dbm-text-flow
-          ul.social-likes.list-unstyled.share-buttons
-            li.facebook data={app_id: "#{Settings.social.fb_app_id}", callback_url: "#{share_callback_url}"} Facebook
-            li.vkontakte VK
-            li.twitter Twitter
+        .dbm-img-flow
+          .footer
+            .col-sm-2.col-md-3
+              .h2
+                img src="#{image_path('m-logo.svg')}" onerror="this.onerror=null; this.src='#{image_path('m-logo.png')}'"
+            .col-sm-4.col-md-3
+              h2
+                | Поделиться
+              ul.social-likes.list-unstyled.share-buttons
+                li.facebook data={app_id: "#{Settings.social.fb_app_id}", callback_url: "#{share_callback_url}"} Facebook
+                li.twitter Twitter
+                li.vkontakte Вконтакте
 
         .dbm-text-flow
           h2 Другие проекты

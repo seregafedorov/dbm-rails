@@ -1,0 +1,39 @@
+doctype html
+html
+  head
+    title
+      = yield :title
+
+    = yield :additional_meta
+
+    meta charset='utf-8'
+    meta name='viewport' content='width=device-width, initial-scale=1'
+    = favicon_link_tag 'favicon.ico'
+    link rel="shortcut icon" href="#{ActionController::Base.asset_host}/favicon.ico" type="image/x-icon"
+    = csrf_meta_tags
+    = stylesheet_link_tag 'index'
+    = javascript_include_tag 'application'
+    = yield :page_javascripts
+
+  body
+    .dbm-navbar
+      .container-fluid
+        .row
+          .dbm-navbar-header
+            button.navbar-toggle.collapsed data-toggle='collapse' data-target='.navbar-collapse'
+              span.icon-bar
+              span.icon-bar
+              span.icon-bar
+            .col-sm-6
+              a.dbm-navbar-brand href='/'
+                | Masterskaya
+                - unless @section_title.blank?
+                  .section-name = @section_title
+
+          .navbar-collapse.collapse
+            .col-sm-1
+              = render :partial => 'layout_partials/nav_activities'
+            .col-sm-1
+              = render :partial => 'layout_partials/nav_projects'
+
+    = yield
