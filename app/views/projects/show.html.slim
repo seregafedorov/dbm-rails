@@ -59,7 +59,8 @@
                 li.vkontakte Вконтакте
 
         .dbm-text-flow
-          h2 Другие проекты
+          - unless @project.related_projects.blank?
+            h2 Другие проекты
           ul.activities-list
             - for related_project in @project.related_projects
               li.activities-list-item
