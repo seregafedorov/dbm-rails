@@ -16,11 +16,11 @@ body {
   letter-spacing: 1px;
   font-size: $font-size-base;
   line-height: $line-height-base;
-  @media (min-width: 1024px) {
+  @media (min-width: $screen-md) {
     font-size: $font-size-md;
     line-height: $line-height-md;
   }
-  @media (min-width: 1280px) {
+  @media (min-width: $screen-lg) {
     font-size: $font-size-lg;
     line-height: $line-height-lg;
   }
@@ -33,12 +33,24 @@ h1, h2, h3, h4, h5,
   font-size: inherit;
   line-height: inherit;
   margin-top: 0;
-  margin-bottom: $line-height-lg;
+  margin-bottom: $line-height-base;
+  @media (min-width: $screen-md) {
+    margin-bottom: $line-height-md;
+  }
+  @media (min-width: $screen-lg) {
+    margin-bottom: $line-height-lg;
+  }
 }
 
 h2,
 .h2 {
-  margin-top: ($line-height-lg * 6);
+  margin-top: ($line-height-base * 6);
+  @media (min-width: $screen-md) {
+    margin-top: ($line-height-md * 6);
+  }
+  @media (min-width: $screen-lg) {
+    margin-top: ($line-height-lg * 6);
+  }
 }
 h3,
 .h3 {
@@ -47,17 +59,23 @@ h3,
 
 p, ul, li, .lead, .caption {
   margin-top: 0;
-  margin-bottom: $line-height-lg;
+  margin-bottom: $line-height-base;
+  @media (min-width: $screen-md) {
+    margin-bottom: $line-height-md;
+  }
+  @media (min-width: $screen-lg) {
+    margin-bottom: $line-height-lg;
+  }
 }
 
 .caption {
   font-size: 9px;
   line-height: 14px;
-  @media (min-width: 1024px) {
+  @media (min-width: $screen-md) {
     font-size: 11px;
     line-height: 16px;
   }
-  @media (min-width: 1280px) {
+  @media (min-width: $screen-lg) {
     font-size: 12px;
     line-height: 18px;
   }
@@ -107,7 +125,13 @@ strong,
     @include make-md-column(3);
   }
   li {
-    margin-bottom: $line-height-lg;
+    margin-bottom: $line-height-base;
+    @media (min-width: $screen-md) {
+      margin-bottom: $line-height-md;
+    }
+    @media (min-width: $screen-lg) {
+      margin-bottom: $line-height-lg;
+    }
   }
 }
 
@@ -143,7 +167,13 @@ strong,
 
 .projects-list-item,
 .activities-list-item {
-  margin-bottom: ($line-height-lg * 3);
+  margin-bottom: ($line-height-base * 3);
+  @media (min-width: $screen-md) {
+    margin-bottom: ($line-height-md * 3);
+  }
+  @media (min-width: $screen-lg) {
+    margin-bottom: ($line-height-lg * 3);
+  }
 }
 
 .projects-list-item-heading,
@@ -480,7 +510,13 @@ strong,
 
 .dbm-img-flow {
   @include make-sm-column(6);
-  margin-top: ($line-height-lg * 3);
+  margin-top: ($line-height-base * 3);
+  @media (min-width: $screen-md) {
+    margin-bottom: ($line-height-md * 3);
+  }
+  @media (min-width: $screen-lg) {
+    margin-bottom: ($line-height-lg * 3);
+  }
   + .dbm-img-flow {
     margin-top: 0;
   }
