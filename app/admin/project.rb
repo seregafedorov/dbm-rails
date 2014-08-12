@@ -19,12 +19,12 @@ ActiveAdmin.register Project do
     p.set_project_section_positions!
   end
 
-  member_action :show_on_main, :method => :put do
+  member_action :toggle_on_main, :method => :put do
     Project.transaction do
       project = Project.friendly.find(params[:id])
-      Project.update_all({:shown_on_main => false})
-      Activity.update_all({:shown_on_main => false})
-      project.update_attribute(:shown_on_main, true)
+      # Project.update_all({:shown_on_main => false})
+      # Activity.update_all({:shown_on_main => false})
+      project.update_attribute(:shown_on_main, !project.shown_on_main)
       redirect_to admin_projects_path
     end
   end
@@ -35,9 +35,7 @@ ActiveAdmin.register Project do
       project.name
     end
     actions do |project|
-      unless project.shown_on_main
-        link_to 'Показать на главной', show_on_main_admin_project_path(project), :method => :put
-      end
+      link_to (project.shown_on_main ? 'Скрыть с главной' : 'Показывать на главной'), toggle_on_main_admin_project_path(project), :method => :put
     end
   end
 

@@ -7,15 +7,15 @@ ActiveAdmin.register Activity do
                 gallery_images_attributes: [:image, :id, :_destroy],
                 translations_attributes: [:id, :name, :heading, :description, :link, :link_text, :locale]
 
-  member_action :show_on_main, :method => :put do
-    Activity.transaction do
-      activity = Activity.friendly.find(params[:id])
-      Project.update_all({:shown_on_main => false})
-      Activity.update_all({:shown_on_main => false})
-      activity.update_attribute(:shown_on_main, true)
-      redirect_to admin_activities_path
-    end
-  end
+  # member_action :show_on_main, :method => :put do
+  #   Activity.transaction do
+  #     activity = Activity.friendly.find(params[:id])
+  #     Project.update_all({:shown_on_main => false})
+  #     Activity.update_all({:shown_on_main => false})
+  #     activity.update_attribute(:shown_on_main, true)
+  #     redirect_to admin_activities_path
+  #   end
+  # end
 
   index do
     column :id
@@ -23,9 +23,7 @@ ActiveAdmin.register Activity do
       activity.name
     end
     actions do |activity|
-      unless activity.shown_on_main
-        link_to 'Показать на главной', show_on_main_admin_activity_path(activity), :method => :put
-      end
+
     end
   end
 
