@@ -520,6 +520,9 @@ strong,
   + .dbm-img-flow {
     margin-top: 0;
   }
+  &:last-child {
+    margin-bottom: 0;
+  }
 }
 
 .dbm-img-post {
