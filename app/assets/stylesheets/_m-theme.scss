@@ -512,15 +512,15 @@ strong,
   @include make-sm-column(6);
   margin-top: ($line-height-base * 3);
   @media (min-width: $screen-md) {
-    margin-bottom: ($line-height-md * 3);
+    margin-top: ($line-height-md * 3);
   }
   @media (min-width: $screen-lg) {
-    margin-bottom: ($line-height-lg * 3);
+    margin-top: ($line-height-lg * 3);
   }
   + .dbm-img-flow {
     margin-top: 0;
   }
-  &:last-child {
+  &.last {
     margin-bottom: 0;
   }
 }
