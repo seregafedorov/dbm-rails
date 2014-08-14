@@ -167,6 +167,7 @@ strong,
 
 .projects-list-item,
 .activities-list-item {
+  margin-right: -36px;
   margin-bottom: ($line-height-base * 3);
   @media (min-width: $screen-md) {
     margin-bottom: ($line-height-md * 3);
