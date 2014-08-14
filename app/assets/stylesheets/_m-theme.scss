@@ -482,6 +482,19 @@ strong,
   }
 }
 
+.menu {
+  display: none;
+  @media (min-width: $grid-float-breakpoint) {
+    display: block;
+  }
+}
+
+.hamburger-menu {
+  @media (min-width: $grid-float-breakpoint) {
+    display: none;
+  }
+}
+
 .nav-inner {
   color: $text-color;
   &:hover,
