@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: [:show]
-  before_action :init_projects, only: [:index]
+  before_action :show_projects_menu, only: [:index]
 
   def index
     @section_title = I18n.t('menu.projects')

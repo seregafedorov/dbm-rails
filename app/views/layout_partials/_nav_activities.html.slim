@@ -2,11 +2,6 @@ ul.dbm-navbar-nav
   li
     a.strong href="#{activities_path}"
       | #{I18n.t('menu.activities')}
-    - if @activities
-      ul.list-unstyled
-        - for activity in @activities
-          li
-            - if @activity && (@activity.id == activity.id)
-              a.nav-inner.active href="#{activity_path(activity)}" = activity.name
-            - else
-              a.nav-inner href="#{activity_path(activity)}" = activity.name
+    - if @show_activities
+      = render partial: 'layout_partials/activity_menu_list', locals: { activities: @activities, current_activity: @activity, list_class: 'menu' }
+    = render partial: 'layout_partials/activity_menu_list', locals: { activities: @activities, current_activity: @activity, list_class: 'hamburger-menu' }

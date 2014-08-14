@@ -4,6 +4,8 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   before_action :set_locale
+  before_action :init_projects
+  before_action :init_activities
 
   private
 
@@ -17,6 +19,14 @@ class ApplicationController < ActionController::Base
 
   def init_activities
     @activities = Activity.all
+  end
+
+  def show_projects_menu
+    @show_projects = true
+  end
+
+  def show_activities_menu
+    @show_activities = true
   end
 
   def default_url_options(options={})

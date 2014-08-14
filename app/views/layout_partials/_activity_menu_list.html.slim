@@ -1,0 +1,8 @@
+- if defined? activities
+  ul.list-unstyled class="#{list_class}"
+    - for activity in activities
+      li
+        - if current_activity && (current_activity.id == activity.id)
+          a.nav-inner.active href="#{activity_path(activity)}" = activity.name
+        - else
+          a.nav-inner href="#{activity_path(activity)}" = activity.name

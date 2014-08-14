@@ -1,6 +1,6 @@
 class FrontpageController < ApplicationController
-  before_action :init_projects
-  before_action :init_activities
+  before_action :show_projects_menu
+  before_action :show_activities_menu
   layout 'application'
 
   def index

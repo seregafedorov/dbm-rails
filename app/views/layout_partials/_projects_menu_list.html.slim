@@ -1,0 +1,5 @@
+- if defined? projects
+  ul.list-unstyled class="#{list_class}"
+    - for project in projects
+      li
+        a.nav-inner href="#{project_path(project)}" = project.name

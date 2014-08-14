@@ -2,8 +2,6 @@ ul.dbm-navbar-nav
   li
     a.strong href="#{projects_path}"
       | #{I18n.t('menu.projects')}
-    - if @projects
-      ul.list-unstyled
-        - for project in @projects
-          li
-            a.nav-inner href="#{project_path(project)}" = project.name
+    - if @show_projects
+      = render partial: 'layout_partials/projects_menu_list', locals: { projects: @projects, list_class: 'menu' }
+    = render partial: 'layout_partials/projects_menu_list', locals: { projects: @projects, list_class: 'hamburger-menu' }
