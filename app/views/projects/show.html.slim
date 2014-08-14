@@ -66,7 +66,7 @@
               - for related_project in @project.related_projects
                 li.activities-list-item
                   a.activities-list-item-img href="#{project_path(related_project)}"
-                    img.img-anons width='100%' height='auto' alt='' src="#{related_project.card_image.big_1280x800.url}"
+                    img.img-anons width='100%' height='auto' alt='' src="#{related_project.card_image.big_1280x1280.url}"
                   a.activities-list-item-heading href="#{project_path(related_project)}"
                     | #{related_project.feat_heading}
                   .activities-list-item-tag
