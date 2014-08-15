@@ -1,4 +1,4 @@
-class ErrorsController
+class ErrorsController < ApplicationController
 
 #Response
   respond_to :html, :xml, :json
