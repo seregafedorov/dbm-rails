@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   root to: 'frontpage#index'
 
   scope '(:locale)', locale: /#{I18n.available_locales.join('|')}/ do
-    get '/' => 'frontpage#index'
+    get '/' => 'frontpage#index', as: :frontpage
     get '/team' => 'frontpage#team'
     get '/share_callback' => 'frontpage#share_callback'
     resources :activities, :only => [:show, :index]

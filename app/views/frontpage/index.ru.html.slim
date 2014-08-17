@@ -1,5 +1,12 @@
 = title 'Мастерская Димы Барбанеля'
 
+= content_for :additional_meta do
+  meta property="og:url" content="#{frontpage_url}"
+  meta property="og:title" content='Мастерская Димы Барбанеля'
+  meta property="og:description" content='Мастерская Димы Барбанеля'
+  meta property="og:image" content="#{image_url('m-logo.png')}"
+
+
 .content-wrapper
   .content
     .content-text
