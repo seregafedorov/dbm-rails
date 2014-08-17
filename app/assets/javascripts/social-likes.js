@@ -39,7 +39,7 @@
 			convertNumber: function(data) {
 				return data.data[0].total_count;
 			},
-            popupUrl: 'https://www.facebook.com/dialog/share?display=popup&app_id={appId}&&href={url}&redirect_uri={redirectUrl}',
+            popupUrl: 'https://www.facebook.com/dialog/share?display=popup&app_id={appId}&&href={url}&redirect_uri={callbackUrl}',
 			popupWidth: 600,
 			popupHeight: 500
 		},
