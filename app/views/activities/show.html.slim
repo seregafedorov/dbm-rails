@@ -1,5 +1,14 @@
 = title "#{@activity.heading}"
 
+= content_for :additional_meta do
+  meta property="og:type" content='website'
+  meta property="og:url" content="#{activity_url(@activity)}"
+  meta property="og:title" content="#{@activity.heading}"
+  meta property="og:description" content="#{@activity.description}"
+  /- if @project.card_image
+    meta property="og:image" content="#{@project.card_image.url}"
+
+
 .content-wrapper
   .content
     .content-text
