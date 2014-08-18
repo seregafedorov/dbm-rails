@@ -12,6 +12,8 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'carrierwave-processing'
 
+gem 'htmlentities'
+
 gem 'thin'
 
 gem 'devise'

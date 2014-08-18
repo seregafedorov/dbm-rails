@@ -14,4 +14,10 @@ module ApplicationHelper
     content_for :title, page_title.to_s
   end
 
+  def decode source
+    require 'htmlentities'
+    coder = HTMLEntities.new
+    coder.decode source
+  end
+
 end
