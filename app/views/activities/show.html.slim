@@ -3,8 +3,8 @@
 = content_for :additional_meta do
   meta property="og:type" content='website'
   meta property="og:url" content="#{activity_url(@activity)}"
-  meta property="og:title" content="#{sanitize(@activity.heading)}"
-  meta property="og:description" content="#{sanitize(@activity.description)}"
+  meta property="og:title" content="#{strip_tags(@activity.heading)}"
+  meta property="og:description" content="#{strip_tags(@activity.description)}"
   /- if @project.card_image
     meta property="og:image" content="#{@project.card_image.url}"
 
