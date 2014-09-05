@@ -619,11 +619,11 @@
 	}
 
 
-	/**
-	 * Auto initialization
-	 */
-	$(function() {
-		$('.' + prefix).socialLikes();
-	});
+//	/**
+//	 * Auto initialization
+//	 */
+//	$(function() {
+//		$('.' + prefix).socialLikes();
+//	});
 
 }));

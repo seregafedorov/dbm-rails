@@ -76,8 +76,11 @@
 
 = content_for :page_javascripts do
   javascript:
-    $('.social-like').socialLikes({
-      url: '#{project_url(@project)}',
-      title: '#{@project.feat_heading}',
-      counters: true
+    $(document).ready(function(){
+      $('.social-likes').socialLikes({
+        url: '#{project_url(@project)}',
+        title: '#{@project.feat_heading}',
+        counters: true
+      });
     });
+
