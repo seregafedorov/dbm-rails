@@ -39,7 +39,8 @@
 			convertNumber: function(data) {
 				return data.data[0].total_count;
 			},
-            popupUrl: 'https://www.facebook.com/dialog/share?display=popup&app_id={appId}&&href={url}&redirect_uri={callbackUrl}',
+//            popupUrl: 'https://www.facebook.com/dialog/share?display=popup&app_id={appId}&&href={url}&redirect_uri={callbackUrl}',
+            popupUrl: 'https://www.facebook.com/dialog/share_open_graph?app_id={appId}&display=popup&action_type=og.likes&action_properties=%7B%22object%22%3A%22{url}%22%7D&redirect_uri={callbackUrl}',
 			popupWidth: 600,
 			popupHeight: 500
 		},
