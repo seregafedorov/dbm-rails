@@ -71,6 +71,7 @@ ActiveAdmin.register Activity do
   controller do
     skip_filter :init_projects
     skip_filter :init_activities
+    skip_filter :init_profiles
 
     def find_resource
       scoped_collection.friendly.find(params[:id])
