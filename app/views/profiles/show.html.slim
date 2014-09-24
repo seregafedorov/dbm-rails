@@ -14,23 +14,12 @@
     .content-text
       h1.h3
         | #{@profile.name}
-      p
-        | #{@profile.description.html_safe}
-
-
-
-
-
-      /ul.list-inline
-      /  - unless @profile.photo.file.blank?
-      /    li
-      /      a href="#{@profile.photo.url}"
-      p
-        | Тэги
-        - unless @profile.tags.blank?
-          ul
+      - unless @profile.tags.blank?
+        ul.list-unstyled
           - @profile.tags_array.each do |tag|
             li = tag
+      p
+        | #{@profile.description.html_safe}
 
     .content-img
       - unless @profile.photo.file.blank?
