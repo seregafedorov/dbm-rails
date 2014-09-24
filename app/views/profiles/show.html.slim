@@ -17,7 +17,21 @@
       p
         | #{@profile.description.html_safe}
 
-      ul.list-inline
-        - unless @profile.photo.file.blank?
-          li
-            a href="#{@profile.photo.url}"
+
+
+
+
+      /ul.list-inline
+      /  - unless @profile.photo.file.blank?
+      /    li
+      /      a href="#{@profile.photo.url}"
+      p
+        | Тэги
+        - unless @profile.tags.blank?
+          ul
+          - @profile.tags_array.each do |tag|
+            li = tag
+
+    .content-img
+      - unless @profile.photo.file.blank?
+        .content-img-inner style="background-image: url(#{@profile.photo.try(:big_1280x1280).try(:url)})"

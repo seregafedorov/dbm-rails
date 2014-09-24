@@ -8,6 +8,12 @@ class Profile < ActiveRecord::Base
 
   mount_uploader :photo, CardImageUploader
 
-
+  def tags_array
+    if !tags.blank?
+      tags.split(',').map { |s| s.strip }
+    else
+      []
+    end
+  end
 
 end
