@@ -28,6 +28,8 @@
             | #{@activity.link_text}
 
 
+    p
+      | #{@activity.credit}
     .content-img
       - if @activity.vimeo_video_str.blank?
         - if @activity.gallery_images.size > 0

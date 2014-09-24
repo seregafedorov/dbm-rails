@@ -4,7 +4,7 @@ ActiveAdmin.register Project do
   config.filters = false
 
   permit_params :name, :card_info, :feat_heading, :feat_lead, :card_image, :tag, :slugged_url, :locale, :position,
-                translations_attributes: [:id, :name, :card_info, :feat_heading, :feat_lead, :locale, :tag],
+                translations_attributes: [:id, :name, :card_info, :feat_heading, :feat_lead, :locale, :tag, :credit],
                 project_sections_attributes: [
                     :id, :_destroy, :position, :locale, :vimeo_video_str,
                     translations_attributes: [:id, :name, :subheading, :section_text, :locale],
@@ -50,6 +50,7 @@ ActiveAdmin.register Project do
         t.input :feat_heading, as: :string
         t.input :feat_lead, as: :text
         t.input :tag, as: :string
+        t.input :credit, as: :string
       end
 
       f.input :card_image, as: :file, :hint => f.template.image_tag(f.object.card_image_url, width: 400, height: 'auto')

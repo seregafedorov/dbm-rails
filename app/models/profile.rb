@@ -1,10 +1,10 @@
 class Profile < ActiveRecord::Base
   extend FriendlyId
-  translates :name, :tags, :description, :surname
+  translates :name, :tags, :description, :surname, :credit
 
   friendly_id :slugged_url, use: [:slugged, :history]
 
-  active_admin_translates :name, :tags, :description, :surname
+  active_admin_translates :name, :tags, :description, :surname, :credit
 
   mount_uploader :photo, CardImageUploader
 

@@ -1,5 +1,5 @@
 class Project < ActiveRecord::Base
-  translates :name, :card_info, :feat_heading, :feat_lead, :tag
+  translates :name, :card_info, :feat_heading, :feat_lead, :tag, :credit
 
   has_many :project_sections
   has_many :project_relations, foreign_key: 'parent_id'
@@ -10,7 +10,7 @@ class Project < ActiveRecord::Base
   extend FriendlyId
   friendly_id :slugged_url, use: [:slugged, :history]
 
-  active_admin_translates :name, :card_info, :feat_heading, :feat_lead, :tag
+  active_admin_translates :name, :card_info, :feat_heading, :feat_lead, :tag, :credit
   accepts_nested_attributes_for :project_sections, :allow_destroy => true
   accepts_nested_attributes_for :project_relations, :allow_destroy => true
 

@@ -5,7 +5,7 @@ ActiveAdmin.register Activity do
 
   permit_params :name, :heading, :description, :link, :link_text, :attachment, :slugged_url, :card_image, :position, :vimeo_video_str, :preview_video_image, :remove_attachment,
                 gallery_images_attributes: [:image, :id, :_destroy],
-                translations_attributes: [:id, :name, :heading, :description, :link, :link_text, :locale]
+                translations_attributes: [:id, :name, :heading, :description, :link, :link_text, :locale, :credit]
 
   # member_action :show_on_main, :method => :put do
   #   Activity.transaction do
@@ -38,6 +38,7 @@ ActiveAdmin.register Activity do
         t.input :description
         t.input :link, as: :string
         t.input :link_text, as: :string
+        t.input :credit, as: string
       end
 
       f.input :attachment, :as => :file, :hint => (f.template.link_to(f.object.attachment.file.filename, f.object.attachment_url) if f.object.attachment.file)

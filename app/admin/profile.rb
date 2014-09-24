@@ -4,7 +4,7 @@ ActiveAdmin.register Profile do
   config.filters = false
 
   permit_params :name, :tags, :description, :photo, :slugged_url, :remove_photo, :surname,
-                translations_attributes: [:id, :name, :tags, :description, :locale]
+                translations_attributes: [:id, :name, :tags, :description, :locale, :credit]
 
   index do
     column :id
@@ -25,7 +25,7 @@ ActiveAdmin.register Profile do
         t.input :surname, as: :string
         t.input :tags, as: :string
         t.input :description
-
+        t.input :credit, as: :string
       end
 
       f.input :photo, :as => :file, :hint => (f.template.link_to(f.object.photo.file.filename, f.object.photo_url) if f.object.photo.file)

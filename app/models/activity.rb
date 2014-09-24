@@ -6,8 +6,8 @@ class Activity < ActiveRecord::Base
 
   friendly_id :slugged_url, use: [:slugged, :history]
 
-  translates :name, :heading, :description, :link, :link_text
-  active_admin_translates :name, :heading, :description, :link, :link_text
+  translates :name, :heading, :description, :link, :link_text, :credit
+  active_admin_translates :name, :heading, :description, :link, :link_text, :credit
 
 
   mount_uploader :attachment, UnchangedNameUploader
