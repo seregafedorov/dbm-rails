@@ -3,7 +3,7 @@ ActiveAdmin.register Profile do
 
   config.filters = false
 
-  permit_params :name, :tags, :description, :photo, :slugged_url, :remove_photo,
+  permit_params :name, :tags, :description, :photo, :slugged_url, :remove_photo, :surname,
                 translations_attributes: [:id, :name, :tags, :description, :locale]
 
   index do
@@ -22,6 +22,7 @@ ActiveAdmin.register Profile do
       f.input :slugged_url, as: :string
       f.translated_inputs 'Translated fields', switch_locale: false, auto_sort: false do |t|
         t.input :name, as: :string
+        t.input :surname, as: :string
         t.input :tags, as: :string
         t.input :description
 
