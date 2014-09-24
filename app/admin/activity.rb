@@ -38,7 +38,7 @@ ActiveAdmin.register Activity do
         t.input :description
         t.input :link, as: :string
         t.input :link_text, as: :string
-        t.input :credit, as: string
+        t.input :credit, as: :string
       end
 
       f.input :attachment, :as => :file, :hint => (f.template.link_to(f.object.attachment.file.filename, f.object.attachment_url) if f.object.attachment.file)
