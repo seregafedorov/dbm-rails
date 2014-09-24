@@ -1,0 +1,23 @@
+= title "#{@profile.name}"
+
+= content_for :additional_meta do
+  meta property="og:type" content='website'
+  meta property="og:url" content="#{activity_url(@profile)}"
+  meta property="og:title" content="#{strip_tags(decode(@profile.name))}"
+  meta property="og:description" content="#{strip_tags(decode(@profile.description))}"
+  /- if @project.card_image
+    meta property="og:image" content="#{@project.card_image.url}"
+
+
+.content-wrapper
+  .content
+    .content-text
+      h1.h3
+        | #{@profile.name}
+      p
+        | #{@profile.description.html_safe}
+
+      ul.list-inline
+        - unless @profile.photo.file.blank?
+          li
+            a href="#{@profile.photo.url}"

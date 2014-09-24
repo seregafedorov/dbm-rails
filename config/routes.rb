@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     get '/share_callback' => 'frontpage#share_callback'
     resources :activities, :only => [:show, :index]
     resources :projects, :only => [:show, :index]
+    resources :profiles, :only => [:show, :index]
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

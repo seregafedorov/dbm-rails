@@ -2,6 +2,7 @@ ru:
   menu:
     activities: 'Инициативы'
     projects: 'Проекты'
+    profiles: "Команда"
   active_admin:
     globalize:
       language:

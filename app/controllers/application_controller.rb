@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
   before_action :set_locale
   before_action :init_projects
   before_action :init_activities
+  before_action :init_profiles
 
   private
 
@@ -19,6 +20,10 @@ class ApplicationController < ActionController::Base
 
   def init_activities
     @activities = Activity.all
+  end
+
+  def init_profiles
+    @profiles = Profile.all
   end
 
   def show_projects_menu

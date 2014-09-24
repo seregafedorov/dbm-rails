@@ -2,6 +2,7 @@ en:
   menu:
     activities: 'Activities'
     projects: 'Projects'
+    profiles: "Profiles"
   active_admin:
     globalize:
       language:
