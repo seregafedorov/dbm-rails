@@ -23,7 +23,7 @@ class ApplicationController < ActionController::Base
   end
 
   def init_profiles
-    @profiles = Profile.all
+    @profiles = Profile.all.with_translations(I18n.locale).order('profile_translations.surname')
   end
 
   def show_projects_menu

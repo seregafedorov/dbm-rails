@@ -13,7 +13,7 @@
   .content
     .content-text
       h1.h3
-        | #{@profile.name}
+        | #{@profile.name} #{@profile.surname}
       - unless @profile.tags.blank?
         ul.list-unstyled
           - @profile.tags_array.each do |tag|
