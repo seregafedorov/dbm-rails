@@ -31,15 +31,16 @@
             .dbm-text-flow
               = project_section.section_text.try(:html_safe)
           - if project_section.vimeo_video_str.blank?
-            - for project_section_image in project_section.project_section_images
+            - project_section.project_section_images.each_with_index do |project_section_image , index |
               .dbm-img-flow
                 img.dbm-img-post src="#{project_section_image.image_url}" width="100%" height="auto"
                 - unless project_section_image.caption.blank?
                   .row
                     .dbm-text-flow
                       .caption = project_section_image.caption.try(:html_safe)
-                .credit.credit-rotate
-                  | #{@project.credit}
+                - if index == 0
+                  .credit.credit-rotate
+                    | #{@project.credit}
 
           - else
             .dbm-img-flow
