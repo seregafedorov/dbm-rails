@@ -20,7 +20,7 @@
             .lead
               = @project.feat_lead.html_safe
 
-        - for project_section in @project.project_sections
+        - @project.project_sections.each_with_index do |project_section, index |
           - unless project_section.name.blank?
             .dbm-text-flow
               h2 = project_section.name
@@ -31,7 +31,7 @@
             .dbm-text-flow
               = project_section.section_text.try(:html_safe)
           - if project_section.vimeo_video_str.blank?
-            - project_section.project_section_images.each_with_index do |project_section_image , index |
+            - project_section.project_section_images.each_with_index do |project_section_image , idx |
               .dbm-img-flow
                 img.dbm-img-post src="#{project_section_image.image_url}" width="100%" height="auto"
                 - unless project_section_image.caption.blank?
