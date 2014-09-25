@@ -28,9 +28,9 @@
             | #{@activity.link_text}
 
 
-    p
-      | #{@activity.credit}
     .content-img
+      .credit.credit-rotate
+        | #{@activity.credit}
       - if @activity.vimeo_video_str.blank?
         - if @activity.gallery_images.size > 0
           - if @activity.gallery_images.size > 1

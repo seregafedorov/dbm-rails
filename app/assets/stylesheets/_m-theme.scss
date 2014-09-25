@@ -81,6 +81,22 @@ p, ul, li, .lead, .caption {
   }
 }
 
+.credit {
+  position: absolute;
+  bottom: 100px;
+  left: -82px;
+  font-size: 7px;
+  letter-spacing: 4px;
+}
+
+.credit-rotate {
+  -webkit-transform: rotate(-90deg);
+  -moz-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  -o-transform: rotate(-90deg);
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+}
+
 li {
   margin-bottom: 0;
 }
