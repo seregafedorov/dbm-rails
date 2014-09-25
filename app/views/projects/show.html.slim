@@ -38,6 +38,8 @@
                   .row
                     .dbm-text-flow
                       .caption = project_section_image.caption.try(:html_safe)
+                .credit.credit-rotate
+                  | #{@project.credit}
 
           - else
             .dbm-img-flow
@@ -73,8 +75,6 @@
                   .activities-list-item-tag
                     | #{related_project.card_info}
 
-        p
-          | #{@project.credit}
 
 = content_for :page_javascripts do
   javascript:
@@ -85,4 +85,3 @@
         counters: true
       });
     });
-

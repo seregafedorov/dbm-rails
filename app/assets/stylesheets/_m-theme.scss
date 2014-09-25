@@ -83,13 +83,19 @@ p, ul, li, .lead, .caption {
 
 .credit {
   position: absolute;
-  bottom: 100px;
-  left: -82px;
+  bottom: 40px;
+  left: 0;
   font-size: 7px;
   letter-spacing: 4px;
 }
 
 .credit-rotate {
+  -webkit-transform-origin: left bottom;
+  -moz-transform-origin: left bottom;
+  -o-transform-origin: left bottom;
+  -ms-transform-origin: left bottom;
+  transform-origin: left bottom;
+
   -webkit-transform: rotate(-90deg);
   -moz-transform: rotate(-90deg);
   -ms-transform: rotate(-90deg);
