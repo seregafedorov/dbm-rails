@@ -570,6 +570,16 @@ strong,
   }
 }
 
+.dbm-img-flow-container {
+  position: relative;
+  .credit {
+    position: absolute;
+    left: 0;
+    bottom: 8px;
+    line-height: 30px;
+  }
+}
+
 .dbm-img-post {
   margin-bottom: 8px;
 }
