@@ -82,11 +82,19 @@ p, ul, li, .lead, .caption {
 }
 
 .credit {
-  position: absolute;
-  bottom: 40px;
-  left: 0;
-  font-size: 7px;
+  position: relative;
+  font-size: 8px;
   letter-spacing: 4px;
+  bottom: 70px;
+  right: 10px;
+  @media (min-width: $screen-xs) {
+    bottom: 50px;
+  }
+  @media (min-width: $grid-float-breakpoint) {
+    position: absolute;
+    bottom: $body-paddings;
+    left: 0;
+  }
 }
 
 .credit-rotate {
