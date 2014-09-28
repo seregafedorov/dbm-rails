@@ -3,13 +3,13 @@ ActiveAdmin.register Profile do
 
   config.filters = false
 
-  permit_params :name, :tags, :description, :photo, :slugged_url, :remove_photo, :surname,
-                translations_attributes: [:id, :name, :tags, :description, :locale, :credit]
+  permit_params :name, :tags, :description, :photo, :slugged_url, :remove_photo,
+                translations_attributes: [:id, :name, :tags, :description, :locale, :credit, :surname]
 
   index do
     column :id
     column :name do |profile|
-      profile.name
+      "#{profile.name} #{profile.surname}"
     end
     actions do |profile|
 
