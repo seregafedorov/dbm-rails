@@ -7,7 +7,6 @@ class ProfilesController < ApplicationController
 
   def show
     @section_title = @profile.name
-    render :layout => 'project'
   end
 
   private
