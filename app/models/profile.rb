@@ -8,7 +8,7 @@ class Profile < ActiveRecord::Base
 
   mount_uploader :photo, CardImageUploader
 
-
+  default_scope -> { order(:position) }
 
   def tags_array
     if !tags.blank?
