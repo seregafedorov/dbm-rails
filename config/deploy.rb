@@ -4,6 +4,8 @@ lock '3.2.1'
 set :application, 'dbm'
 set :repo_url, 'git@github.com:seregafedorov/dbm-rails'
 
+set :branch, ENV['BRANCH_NAME'] || 'master'
+
 # Default branch is :master
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }.call
 

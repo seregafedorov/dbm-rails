@@ -9,7 +9,7 @@ old_pid    = pid_file + '.oldbin'
 working_directory rails_root
 
 timeout 1200
-worker_processes 3
+worker_processes 2
 listen socket_file, :backlog => 1024
 pid pid_file
 stderr_path err_log
