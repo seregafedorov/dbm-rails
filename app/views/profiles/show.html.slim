@@ -24,6 +24,5 @@
     .content-img
       - unless @profile.photo.file.blank?
         .content-img-inner style="background-image: url(#{@profile.photo.try(:big_1280x1280).try(:url)})"
-        .credit.credit-rotate
-          | #{@profile.credit}
-
+    .credit.credit-rotate
+      | #{@profile.credit}
