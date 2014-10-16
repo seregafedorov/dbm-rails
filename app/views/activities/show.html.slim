@@ -27,10 +27,7 @@
           a href="#{@activity.link}"
             | #{@activity.link_text}
 
-
     .content-img
-      .credit.credit-rotate
-        | #{@activity.credit}
       - if @activity.vimeo_video_str.blank?
         - if @activity.gallery_images.size > 0
           - if @activity.gallery_images.size > 1
@@ -44,7 +41,9 @@
           - else
             .content-img-inner style="background-image: url(#{@activity.gallery_images.first.image.try(:big_1280x1280).try(:url)})"
 
+
       - else
         .content-img-inner style="background-image: url(#{@activity.preview_video_image.try(:big_1280x1280).try(:url)})"
 
-        / .content-img-inner.vimeo-preview data-vimeo-id="#{@activity.vimeo_video_str}" style="background-image: url(#{@activity.preview_video_image.try(:big_1280x1280).try(:url)})"
+    .credit.credit-rotate
+      | #{@activity.credit}
