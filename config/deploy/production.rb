@@ -23,7 +23,7 @@ set :pid_file_path, "#{deploy_to}/shared/tmp/pids/unicorn.pid"
 # definition into the server list. The second argument
 # something that quacks like a hash can be used to set
 # extended properties on the server.
-server '146.185.188.211', user: 'deployer', roles: %w{web app db}
+server '188.166.63.241', user: 'deployer', roles: %w{web app db}, ssh_options: { port: 22822 }
 
 
 # Simple Role Syntax
