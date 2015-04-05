@@ -4,6 +4,7 @@ class FrontpageController < ApplicationController
   def index
     main_project = Project.where(:shown_on_main => true).reorder('RANDOM()').first
     # main_activity = Activity.where(:shown_on_main => true).first
+    @main_page_content = DynamicContent.main_page
     @main_page_object = main_project
   end
 

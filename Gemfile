@@ -7,7 +7,7 @@ gem 'rails', '4.1.1'
 gem 'slim-rails'
 
 gem 'high_voltage'
-
+gem 'enumerize'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'carrierwave-processing'
