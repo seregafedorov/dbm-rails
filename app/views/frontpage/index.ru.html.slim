@@ -11,23 +11,15 @@
 .content-wrapper
   .content
     .content-text
-      p
-        - if @main_page_content.present?
-          strong
-            = @main_page_content.content.html_safe
-        - else
-          strong
-            | Мастерская <sup></sup> — междисциплинарная
-            a href="#{profiles_path}"
-              |  проектная группа
-            |. Мы&nbsp;способны формулировать и&nbsp;решать социально значимые проектные задачи через исследование и&nbsp;переосмысление контекста.
-
-      p
+      - if @main_page_content.present?
         strong
-          a href='mailto: ask@masterskaya.pro'
-            | ask@masterskaya.pro
-          br/
-          | +7 916 903 41 38
+          = @main_page_content.content.html_safe
+      - else
+        strong
+          | Мастерская <sup></sup> — междисциплинарная
+          a href="#{profiles_path}"
+            |  проектная группа
+          |. Мы&nbsp;способны формулировать и&nbsp;решать социально значимые проектные задачи через исследование и&nbsp;переосмысление контекста.
 
     - if @main_page_object
 
