@@ -55,7 +55,18 @@
             .col-sm-2.col-md-3.hidden-xs
               .h2
                 a href="/"
-                  img src="#{image_path('m-logo.svg')}" onerror="this.onerror=null; this.src='#{image_path('m-logo.png')}'"
+                  img src="#{image_path('m-logo.svg')}"
+                .nav-brand-lang
+                  a href="/en"
+                    img src="#{image_path('en.svg')}"
+
+                // Mishka add IF here
+                  a href="/en"
+                    img src="#{image_path('m-logo.svg')}"
+                  .nav-brand-lang
+                    a href="/ru"
+                      img src="#{image_path('ru.svg')}"
+                      
             .col-sm-4.col-md-3
               h2
                 | Поделиться

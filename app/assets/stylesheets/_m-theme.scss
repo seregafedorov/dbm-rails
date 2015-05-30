@@ -177,7 +177,7 @@ strong,
 
 .nav-brand {
   display: none;
-  width: 94px;
+  width: 120px;
   height: 119px;
   @media (min-width: $grid-float-breakpoint) {
     display: block;
@@ -185,6 +185,16 @@ strong,
     left: $body-paddings;
     bottom: $body-paddings;
     top: inherit;
+  }
+}
+
+.nav-brand-lang {
+  display: none;
+  line-height: 0;
+  @media (min-width: $grid-float-breakpoint) {
+    display: inline-block;
+    vertical-align: bottom;
+    margin-left: 3px;
   }
 }
 
