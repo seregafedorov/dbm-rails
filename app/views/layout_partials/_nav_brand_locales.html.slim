@@ -1,0 +1,7 @@
+.nav-brand-lang
+  - if I18n.locale == :ru
+    a href="#{url_for({locale: :en})}"
+      img src="#{image_path('en.svg')}"
+  - else
+    a href="#{url_for({locale: :ru})}"
+      img src="#{image_path('ru.svg')}"

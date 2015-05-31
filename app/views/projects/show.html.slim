@@ -56,16 +56,7 @@
               .h2
                 a href="/"
                   img src="#{image_path('m-logo.svg')}"
-                .nav-brand-lang
-                  a href="/en"
-                    img src="#{image_path('en.svg')}"
-
-                // Mishka add IF here
-                  a href="/en"
-                    img src="#{image_path('m-logo.svg')}"
-                  .nav-brand-lang
-                    a href="/ru"
-                      img src="#{image_path('ru.svg')}"
+                = render 'layout_partials/nav_brand_locales'
                       
             .col-sm-4.col-md-3
               h2
