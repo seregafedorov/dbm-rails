@@ -1,7 +1,12 @@
-.nav-brand-lang
-  - if I18n.locale == :ru
+- if I18n.locale == :ru
+  a href="/"
+    img src="#{image_path('m-logo.svg')}"
+  .nav-brand-lang
     a href="#{url_for({locale: :en})}"
       img src="#{image_path('en.svg')}"
-  - else
+- else
+  a href="/en"
+    img src="#{image_path('m-logo-en.svg')}"
+  .nav-brand-lang
     a href="#{url_for({locale: :ru})}"
       img src="#{image_path('ru.svg')}"
