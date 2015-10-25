@@ -5,6 +5,8 @@ class Project < ActiveRecord::Base
   has_many :project_relations, foreign_key: 'parent_id'
   has_many :related_projects, through: :project_relations, source: :child
 
+  has_many :popup_images, as: :popup_imageable
+
   accepts_nested_attributes_for :project_relations
 
   extend FriendlyId
@@ -13,6 +15,8 @@ class Project < ActiveRecord::Base
   active_admin_translates :name, :card_info, :feat_heading, :feat_lead, :tag, :credit
   accepts_nested_attributes_for :project_sections, :allow_destroy => true
   accepts_nested_attributes_for :project_relations, :allow_destroy => true
+
+  accepts_nested_attributes_for :popup_images, allow_destroy: true
 
   mount_uploader :card_image, CardImageUploader
 

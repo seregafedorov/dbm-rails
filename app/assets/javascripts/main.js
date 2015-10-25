@@ -31,6 +31,30 @@
             $('body').append(videoDiv);
         });
 
+
+        var $popup = $('<div id="popup" class="hide"><div class="container-fluid"><div class="row"><div class="col-xs-offset-1 col-xs-5 vcenter"><div class="popup-image"><img src="">');
+        var $popupImg = $('img', $popup);
+        $('body').append($popup)
+        $('.popup').hover(function () {
+            var $this = $(this);
+            if ($this.data('src')) {
+                $popup.removeClass('hide');
+                $popupImg.attr('src', $this.data('src')).animate({opacity: 1}, {
+                    duration: 100,
+                    queue: false,
+                    complete: function () {
+                        $popup.addClass('active')
+                    }
+                });
+            }
+        }, function () {
+            $popupImg.animate({opacity: 0}, {
+                duration: 100, queue: false, complete: function () {
+                    $popup.addClass('hide').removeClass('active')
+                }
+            });
+        });
+
     });
 
 })();

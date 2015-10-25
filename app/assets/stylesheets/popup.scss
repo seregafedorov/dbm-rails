@@ -1,0 +1,41 @@
+// css for popup
+
+#popup{
+  position: absolute;
+  left:0;
+  right: 0;
+  top: 50%;
+  color: #ff0000;
+  display: block;
+}
+#popup.hide{
+  display: none;
+}
+.popup{
+  color: #ff0000;
+  cursor: pointer;
+  cursor: hand;
+}
+.popup:hover{
+  color: #000000;
+}
+#popup .popup-image{
+  width: 157px;
+  max-height: 388px;
+}
+#popup .popup-image img{
+  margin-top: -50%;
+  max-width: 100%;
+  max-height: 100%;
+}
+.vcenter {
+  display: inline-block;
+  vertical-align: middle;
+  float: none;
+}
+@media (min-width: 769px) {
+  #popup .popup-image{
+    width: 370px;
+    max-height: 728px;
+  }
+}

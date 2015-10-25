@@ -13,7 +13,8 @@ ActiveAdmin.register Project do
                         translations_attributes: [:id, :caption, :locale]
                     ]
                 ],
-                project_relations_attributes: [:id, :child_id, :_destroy]
+                project_relations_attributes: [:id, :child_id, :_destroy],
+                popup_images_attributes: [:image, :id, :_destroy]
 
   after_save do |p|
     p.set_project_section_positions!
@@ -87,6 +88,20 @@ ActiveAdmin.register Project do
         end
 
 
+      end
+
+
+      f.has_many :popup_images do |popup_image|
+        unless popup_image.object.new_record?
+          popup_image.input :_destroy, :as => :boolean, :label => 'Удалить'
+        end
+        popup_image.inputs 'Attachment', :multipart => true do
+          # popup_image.input :fake_url, :as => :file, :hint => popup_image.template.content_tag(:span, object.image_url)
+          popup_image.input :image, :as => :file, :hint => popup_image.template.image_tag(popup_image.object.image_url,  width: 400, height: 'auto' )
+          popup_image.input :image_cache, :as => :hidden
+          popup_image.form_buffers.last << "<h3>Ссылка на картинку #{popup_image.object.image_url}</h3>".html_safe
+          # popup_image.form_buffers.last << "<h3>Название файла #{popup_image.object.image}</h3>".html_safe
+        end
       end
 
     end
