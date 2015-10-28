@@ -15,11 +15,11 @@ class ApplicationController < ActionController::Base
   end
 
   def init_projects
-    @projects = Project.all
+    @projects = Project.where(visible: true)
   end
 
   def init_activities
-    @activities = Activity.all
+    @activities = Activity.where(visible: true)
   end
 
   def init_profiles

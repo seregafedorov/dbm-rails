@@ -17,13 +17,23 @@ ActiveAdmin.register Activity do
   #   end
   # end
 
+  member_action :toggle_visible, :method => :put do
+    Activity.transaction do
+      activity = Activity.friendly.find(params[:id])
+      # Project.update_all({:shown_on_main => false})
+      # Activity.update_all({:shown_on_main => false})
+      activity.update_attribute(:visible, !activity.visible)
+      redirect_to admin_activities_path
+    end
+  end
+
   index do
     column :id
     column :name do |activity|
       activity.name
     end
     actions do |activity|
-
+      link_to (activity.visible ? 'Скрыть с сайта' : 'Показать на сайте'), toggle_visible_admin_activity_path(activity), :method => :put
     end
   end
 

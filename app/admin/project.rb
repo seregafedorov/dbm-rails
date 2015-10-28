@@ -30,6 +30,16 @@ ActiveAdmin.register Project do
     end
   end
 
+  member_action :toggle_visible, :method => :put do
+    Project.transaction do
+      project = Project.friendly.find(params[:id])
+      # Project.update_all({:shown_on_main => false})
+      # Activity.update_all({:shown_on_main => false})
+      project.update_attribute(:visible, !project.visible)
+      redirect_to admin_projects_path
+    end
+  end
+
   index do
     column :id
     column :name do |project|
@@ -37,6 +47,7 @@ ActiveAdmin.register Project do
     end
     actions do |project|
       link_to (project.shown_on_main ? 'Скрыть с главной' : 'Показывать на главной'), toggle_on_main_admin_project_path(project), :method => :put
+      link_to (project.visible ? 'Скрыть с сайта' : 'Показать на сайте'), toggle_visible_admin_project_path(project), :method => :put
     end
   end
 
