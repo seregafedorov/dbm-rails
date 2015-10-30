@@ -6,13 +6,23 @@ ActiveAdmin.register Profile do
   permit_params :name, :tags, :description, :photo, :slugged_url, :remove_photo, :position,
                 translations_attributes: [:id, :name, :tags, :description, :locale, :credit, :surname]
 
+  member_action :toggle_visible, :method => :put do
+    Profile.transaction do
+      profile = Profile.friendly.find(params[:id])
+      # Project.update_all({:shown_on_main => false})
+      # Activity.update_all({:shown_on_main => false})
+      profile.update_attribute(:visible, !profile.visible)
+      redirect_to admin_profiles_path
+    end
+  end
+
   index do
     column :id
     column :name do |profile|
       "#{profile.name} #{profile.surname}"
     end
     actions do |profile|
-
+      link_to (profile.visible ? 'Скрыть с сайта' : 'Показать на сайте'), toggle_visible_admin_profile_path(profile), :method => :put
     end
   end
 
