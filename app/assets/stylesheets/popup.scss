@@ -13,9 +13,13 @@
   _display: none;
   transition: visibility 0s linear .25s;
 }
-.popup, .popup:focus, .popup:hover{
+.popup {
   color: #ff0000;
   cursor: pointer; cursor: hand;
+
+  .popup:focus, .popup:hover {
+    color: #787878;
+  }
 }
 #popup .popup-image{
   width: 100%;
