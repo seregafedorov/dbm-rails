@@ -16,14 +16,18 @@
 }
 
 .popup {
-  color: #ff0000;
+  color: #666;
   cursor: pointer;
-  cursor: hand;
 
   &:focus,
   &:hover {
-    color: #787878;
+    cursor: hand;
   }
+
+  &:visited {
+    color: #888;
+  }
+
 }
 
 #popup .popup-image {
