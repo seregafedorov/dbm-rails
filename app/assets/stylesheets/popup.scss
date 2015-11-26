@@ -16,11 +16,12 @@
 }
 
 .popup {
-  color: #666;
+  color: #ff0000;
   cursor: pointer;
 
   &:focus,
   &:hover {
+    color: #666;
     cursor: hand;
   }
 
