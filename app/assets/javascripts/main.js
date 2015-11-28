@@ -12,7 +12,7 @@
 
         $(document).on('click', '.video-div-inner-close', function (e) {
             var videoDiv = $(e.target).closest('.video-div');
-            if(videoDiv) {
+            if (videoDiv) {
                 videoDiv.remove();
             }
 
@@ -40,58 +40,46 @@
         var touching = false;
         var mouseover = false;
 
-        var popupClose = function(e)
-        {
+        var popupClose = function (e) {
             mouseover = false;
             $popup.addClass('hide');
             $popupImg.unbind('touchstart', popupClose).unbind('click', popupClose);
-        }
-
-
-        var popupOpen = function(e)
-        {
-            e.stopPropagation();
-            if (!onEvent)
-            {
-                onEvent = e.type;
-            }
-
-            if (e.type == onEvent)
-            {
-                if (onEvent == 'touchstart')
-                {
-                    touching = true;
-                }
-                else if (onEvent == 'mouseover')
-                {
-                    mouseover = true;
-                }
-
-                var $this = $(e.target);
-                $popup.removeClass('hide');
-                $popupImg.css({backgroundImage:'url('+$this.data('src')+')'});
-                if (touching)
-                {
-                    var touchInterval = setInterval(function(){
-                        if (!touching)
-                        {
-                            clearInterval(touchInterval);
-                            $popupImg.click(popupClose);
-                        }
-                    }, 10);
-                }
-                else if(mouseover)
-                {
-                    $(e.target).on('mouseleave', popupClose);
-                }
-            }
         };
-        $popupImg.on('touchend', function(){touching = false;});
+
+
+        var popupOpen = function (e) {
+            e.stopPropagation();
+            if (e.type == 'touchstart') {
+                touching = true;
+            }
+            else if (e.type == 'mouseover') {
+                mouseover = true;
+            }
+
+            var $this = $(e.target);
+            $popup.removeClass('hide');
+            $popupImg.css({backgroundImage: 'url(' + $this.data('src') + ')'});
+            var touchInterval = null;
+            if (!mouseover) {
+                touchInterval = setInterval(function () {
+                    clearInterval(touchInterval);
+                    popupClose();
+                }, 5000);
+            }
+            $(e.target).on('mouseleave', function() {
+                if( touchInterval ) {
+                    clearInterval(touchInterval);
+                }
+                popupClose();
+            });
+        };
+        $popupImg.on('touchend', function () {
+            touching = false;
+        });
         $('.popup').on('touchstart click mouseover', popupOpen);
 
 
     });
-
 
 
 })();
