@@ -1,5 +1,11 @@
 (function () {
 
+    function is_touch_device() {
+        return (('ontouchstart' in window)
+        || (navigator.MaxTouchPoints > 0)
+        || (navigator.msMaxTouchPoints > 0));
+    }
+
     $(document).on('ready', function () {
         var $carouselElement = $('#carousel')
         $carouselElement.carousel({
@@ -69,6 +75,7 @@
             }
             var $this = $(e.target);
             if (e.type == 'touchstart') {
+                //alert('touch start');
                 touchInterval = setInterval(function () {
                     clearInterval(touchInterval);
                     popupAutoOrClickClose();
@@ -86,7 +93,12 @@
         //$popupImg.on('touchend', function () {
         //    touching = false;
         //});
-        $('.popup').on('touchstart mouseover', popupOpen);
+        if( is_touch_device() ) {
+            $('.popup').on('touchstart', popupOpen);
+        } else {
+            $('.popup').on('mouseenter', popupOpen);
+        }
+
 
 
     });
