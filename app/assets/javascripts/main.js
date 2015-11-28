@@ -36,47 +36,57 @@
 
         var $popupImg = $('.popup-image', $popup);
         $('body > .container-fluid').append($popup);
-        var onEvent = false;
-        var touching = false;
-        var mouseover = false;
+        var touchInterval = null;
+        var popupTouchInterval = null;
+        var popupOpened = false;
 
-        var popupClose = function (e) {
-            mouseover = false;
-            $popup.addClass('hide');
-            $popupImg.unbind('touchstart', popupClose).unbind('click', popupClose);
+        var popupAutoOrClickClose = function (e) {
+            if (e) {
+                e.stopPropagation();
+            }
+            if (touchInterval) {
+                clearInterval(touchInterval);
+            }
+            if (popupTouchInterval) {
+                clearInterval(popupTouchInterval);
+            }
+            if (!popupOpened) {
+                return;
+            } else {
+                $popup.addClass('hide');
+                $popupImg.unbind('touchstart', popupAutoOrClickClose);
+                popupOpened = false;
+            }
+            //.unbind(, popupAutoOrClickClose);
         };
-
 
         var popupOpen = function (e) {
             e.stopPropagation();
-            if (e.type == 'touchstart') {
-                touching = true;
+            if (popupOpened) {
+                return;
+            } else {
+                popupOpened = true;
             }
-            else if (e.type == 'mouseover') {
-                mouseover = true;
-            }
-
             var $this = $(e.target);
-            $popup.removeClass('hide');
-            $popupImg.css({backgroundImage: 'url(' + $this.data('src') + ')'});
-            var touchInterval = null;
-            if (!mouseover) {
+            if (e.type == 'touchstart') {
                 touchInterval = setInterval(function () {
                     clearInterval(touchInterval);
-                    popupClose();
+                    popupAutoOrClickClose();
                 }, 5000);
+                popupTouchInterval = setInterval(function () {
+                    $popupImg.on('touchstart', popupAutoOrClickClose);
+                }, 500);
+
             }
-            $(e.target).on('mouseleave', function() {
-                if( touchInterval ) {
-                    clearInterval(touchInterval);
-                }
-                popupClose();
-            });
+            $popup.removeClass('hide');
+            $popupImg.css({backgroundImage: 'url(' + $this.data('src') + ')'});
+
+            $this.on('mouseleave', popupAutoOrClickClose);
         };
-        $popupImg.on('touchend', function () {
-            touching = false;
-        });
-        $('.popup').on('touchstart click mouseover', popupOpen);
+        //$popupImg.on('touchend', function () {
+        //    touching = false;
+        //});
+        $('.popup').on('touchstart mouseover', popupOpen);
 
 
     });
