@@ -60,7 +60,8 @@
                 return;
             } else {
                 $popup.addClass('hide');
-                $popupImg.unbind('touchstart', popupAutoOrClickClose);
+                $popupImg.unbind('touchstart', popupAutoOrClickClose)
+                    .unbind('click', popupAutoOrClickClose);
                 popupOpened = false;
             }
             //.unbind(, popupAutoOrClickClose);
@@ -74,14 +75,14 @@
                 popupOpened = true;
             }
             var $this = $(e.target);
-            if (e.type == 'touchstart') {
+            if ( (e.type == 'touchstart' || e.type == 'click') && is_touch_device() ) {
                 //alert('touch start');
                 touchInterval = setInterval(function () {
                     clearInterval(touchInterval);
                     popupAutoOrClickClose();
                 }, 5000);
                 popupTouchInterval = setInterval(function () {
-                    $popupImg.on('touchstart', popupAutoOrClickClose);
+                    $popupImg.on('touchstart click', popupAutoOrClickClose);
                 }, 500);
 
             }
@@ -93,12 +94,11 @@
         //$popupImg.on('touchend', function () {
         //    touching = false;
         //});
-        if( is_touch_device() ) {
-            $('.popup').on('touchstart', popupOpen);
+        if (is_touch_device()) {
+            $('.popup').on('touchstart click', popupOpen);
         } else {
             $('.popup').on('mouseenter', popupOpen);
         }
-
 
 
     });
